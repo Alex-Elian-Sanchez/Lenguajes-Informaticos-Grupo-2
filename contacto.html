@@ -3,19 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
+    <title>Contacto | Oficina de Turismo de Minas Ithil y Minas Morgul</title>
 </head>
 <body>
-    <header>
-        <nav>
-
+    <header id="inicio">
+        <h1>Contacto</h1>
+        <p>
+            <em>¿Tenés dudas, querés reservar una visita guiada o necesitás más información? Estamos para ayudarte.</em>
+        </p>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="ciudad.html">La ciudad</a></li>
+                <li><a href="lugares.html">Lugares</a></li>
+                <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+            </ul>
         </nav>
     </header>
+
     <main>
+        <section id="introduccion">
+            <h2>Estamos para ayudarte</h2>
+            <p>
+                La <strong>Oficina de Turismo de Minas Ithil y Minas Morgul</strong> es el punto de
+                información oficial para visitantes. Si querés conocer los circuitos guiados,
+                resolver dudas sobre los atractivos o recibir recomendaciones para tu visita,
+                podés contactarnos por cualquiera de los canales que figuran abajo.
+            </p>
+            <p>
+                También podés enviarnos tu consulta directamente desde el
+                <a href="#formulario">formulario de contacto</a>.
+            </p>
+        </section>
 
+        <aside id="antes-de-escribirnos">
+            <h2>Antes de escribirnos</h2>
+            <ul>
+                <li>
+                    <strong>Tiempo de respuesta:</strong> respondemos consultas en un plazo
+                    estimado de 48 horas hábiles.
+                </li>
+                <li>
+                    <strong>Reservas de visitas guiadas:</strong> si querés reservar un
+                    circuito, indicalo en el asunto y mencioná la fecha estimada de tu visita.
+                </li>
+                <li>
+                    <strong>Consultas sobre accesibilidad:</strong> la oficina cuenta con
+                    información sobre recorridos adaptados. Escribinos y te enviamos los detalles.
+                </li>
+            </ul>
+            <p>
+                Si tu consulta es urgente, te recomendamos llamar directamente al
+                <a href="tel:+541123456789">+54 11 2345-6789</a>.
+            </p>
+        </aside>
+
+        <section id="datos-contacto">
+            <h2>Información de contacto</h2>
+
+            <article id="direccion">
+                <h3>Dirección</h3>
+                <address>
+                    <p>
+                        Oficina de Turismo y Patrimonio<br>
+                        Avenida de la Luna, 123<br>
+                        Ciudadela de la Luna, Minas Ithil<br>
+                        Ithilien, Tierra Media
+                    </p>
+                </address>
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1758648997732-dd99beaae773?q=80&amp;w=870&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                         alt="Fachada del edificio de la oficina de atención presencial al turista.">
+                    <figcaption>Sede física de la Oficina de Turismo en la Ciudadela de la Luna.</figcaption>
+                </figure>
+            </article>
+
+            <article id="medios-contacto">
+                <h3>Teléfono y correo electrónico</h3>
+                <ul>
+                    <li>
+                        <strong>Teléfono:</strong>
+                        <a href="tel:+541123456789">+54 11 2345-6789</a>
+                    </li>
+                    <li>
+                        <strong>Correo electrónico:</strong>
+                        <a href="mailto:contacto@minasithil.com">contacto@minasithil.com</a>
+                    </li>
+                </ul>
+                <figure>
+                    <img src="https://plus.unsplash.com/premium_photo-1661962650430-9547442d54f4?q=80&amp;w=872&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                         alt="Mostrador del centro de atención y guías para asistencia a turistas y expedicionarios">
+                    <figcaption>Centro de informes y coordinación de visitas guiadas para visitantes.</figcaption>
+                </figure>
+            </article>
+
+            <article id="redes">
+                <h3>Redes sociales</h3>
+                <p>Seguinos para conocer novedades, eventos y recomendaciones:</p>
+                <ul>
+                    <li>
+                        <a href="https://www.facebook.com/turismo.minasithil"
+                           target="_blank"
+                           rel="noopener noreferrer">Facebook (Turismo Minas Ithil)</a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/turismo.minasithil"
+                           target="_blank"
+                           rel="noopener noreferrer">Instagram (@turismo.minasithil)</a>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="horarios">
+            <h2>Horarios de atención</h2>
+            <p>Nuestros canales de atención funcionan en los siguientes horarios:</p>
+            <dl>
+                <dt>Lunes a viernes</dt>
+                <dd>9:00 a 18:00</dd>
+
+                <dt>Sábados</dt>
+                <dd>10:00 a 14:00</dd>
+
+                <dt>Domingos y feriados</dt>
+                <dd>Cerrado</dd>
+            </dl>
+        </section>
+
+        <section id="formulario">
+            <h2>Envianos tu consulta</h2>
+            <p>
+                Completá el formulario y te responderemos a la brevedad. Los campos marcados
+                con <strong>*</strong> son obligatorios.
+            </p>
+
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Datos de contacto</legend>
+
+                    <p>
+                        <label for="nombre">Nombre completo *</label><br>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </p>
+
+                    <p>
+                        <label for="email">Correo electrónico *</label><br>
+                        <input type="email" id="email" name="email" required>
+                    </p>
+
+                    <p>
+                        <label for="telefono">Teléfono (opcional)</label><br>
+                        <input type="tel" id="telefono" name="telefono">
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Tu consulta</legend>
+
+                    <p>
+                        <label for="asunto">Asunto *</label><br>
+                        <select id="asunto" name="asunto" required>
+                            <option value="">Seleccioná una opción</option>
+                            <option value="visitas">Visitas guiadas</option>
+                            <option value="alojamiento">Alojamiento</option>
+                            <option value="eventos">Eventos y actividades</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="mensaje">Mensaje *</label><br>
+                        <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <button type="submit">Enviar consulta</button>
+                </p>
+            </form>
+        </section>
     </main>
-    <footer>
 
+    <footer>
+        <p>&copy; 2026 Ente Oficial de Turismo y Patrimonio de Minas Ithil y Minas Morgul.</p>
+        <nav aria-label="Navegación del pie de página">
+            <a href="#inicio">Volver arriba</a>
+        </nav>
     </footer>
+
 </body>
 </html>
