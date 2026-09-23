@@ -94,3 +94,131 @@ h4 {
 .lado-oscuro h3 {
     color: var(--color-secundario-morgul);
 }
+
+/* ---------------------------------------------------------------------------
+   Header / Encabezado
+   --------------------------------------------------------------------------- */
+
+   header {
+    background-color: var(--color-primario-gondor);
+    color: var(--color-fondo-gondor);
+    padding: 2.5rem 1.5rem 2rem;
+    margin-top:  1rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 4px solid var(--color-secundario-gondor);
+    border-radius: 6px;
+    text-align: center;
+   }
+
+   header h1{
+    color: #FFFFFF;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+   }
+
+   header p {
+    font-size: 1.1rem;
+    color: var(--color-fondo-morgul);
+    margin-bottom:  1.5rem;
+   }
+
+   header p em {
+    color: #FFFFFF;
+   }
+
+/* ----------------------------------------------------------------------------
+   Navegacion principal (Header Nav)
+   ---------------------------------------------------------------------------- */
+
+   header nav {
+    margin-top:  1rem;
+   }
+
+   header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+   }
+
+   header nav li {
+    display: inline-block;
+    margin: 0.3rem 0.5rem;
+   }
+
+/* -------------------------------------------------------------------------------
+   Enlaces del nav: sin subrayado, tiporgrafia y espaciado
+   ------------------------------------------------------------------------------- */
+   
+   header nav a {
+    text-decoration: none;
+    color: var(--color-fondo-gondor);
+    font-family: var(--fuente-titulos);
+    font-size: 1.1rem;
+    padding:  0.5rem 1.2rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    display: inline-block;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+   }
+
+/* --------------------------------------------------------------------------------
+   Efecto hover al pasar el cursor
+   -------------------------------------------------------------------------------- */
+
+   header nav a:hover {
+    background-color: var(--color-acento-gondor);
+    color: #FFFFFF;
+    border-color: #D4AF37;
+   }   
+ 
+/* --------------------------------------------------------------------------------
+   Pagina activa (Resalta la pagina actual usando el atributo aria-current del html)
+   -------------------------------------------------------------------------------- */
+
+   header nav a[aria-current="page"] {
+    background-color: var(--color-secundario-gondor);
+    color: #FFFFFF;
+    border-color: #D4AF37;
+   }
+
+/* ---------------------------------------------------------------------------------
+   Footer / Pie de pagina 
+   --------------------------------------------------------------------------------- */
+
+   footer {
+    background-color: var(--color-texto-gondor);
+    color: var(--color-fondo-gondor);
+    padding: 2.5rem 1.5rem;
+    margin-top: 3.5rem;
+    margin-bottom: 1rem;
+    border-top: 3px solid var(--color-secundario-gondor);
+    border-radius: 6px;
+    text-align: center;
+   }
+
+   footer p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+   }
+
+/* --------------------------------------------------------------------------------
+   Enlace "Volver arriba" del footer
+   -------------------------------------------------------------------------------- */
+   
+   footer nav a {
+    text-decoration: none;
+    color: var(--color-fondo-gondor);
+    font-family: var(--fuente-titulos);
+    font-size: 0.95rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--color-acento-gondor);
+    border-radius: 4px;
+    display: inline-block;
+    transition: background-color 0.25s ease, color 0.25s ease;
+   }
+
+   footer nav a:hover {
+    background-color: var(--color-acento-gondor);
+    color: #FFFFFF;
+   }
