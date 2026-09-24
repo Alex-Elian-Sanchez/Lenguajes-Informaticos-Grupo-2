@@ -95,6 +95,79 @@ h4 {
     color: var(--color-secundario-morgul);
 }
 
+/* --------------------------------------------------------------------------
+   Secciones de contenido
+   -------------------------------------------------------------------------- */
+main {
+    margin-bottom: 3.5rem;
+}
+
+main > section,
+main > article {
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    background-color: var(--color-fondo-gondor);
+    border: 1px solid var(--color-acento-gondor);
+    border-top: 4px solid var(--color-primario-gondor);
+    border-radius: 6px;
+}
+
+main > section > h2,
+main > article > h2 {
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--color-acento-gondor);
+}
+
+article {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background-color: var(--color-fondo-gondor);
+    border-left: 4px solid var(--color-secundario-gondor);
+    border-radius: 4px;
+}
+
+article + article {
+    margin-top: 1.25rem;
+}
+
+article.lado-oscuro {
+    background-color: var(--color-fondo-morgul);
+    border-left-color: var(--color-primario-morgul);
+}
+
+main > article.lado-oscuro {
+    border-color: var(--color-acento-morgul);
+    border-top-color: var(--color-primario-morgul);
+}
+
+main > article.lado-oscuro > h2 {
+    border-bottom-color: var(--color-acento-morgul);
+}
+
+main h2 {
+    line-height: 1.25;
+}
+
+main h3 {
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+main h4 {
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+main p {
+    margin-bottom: 1rem;
+}
+
+main p:last-child {
+    margin-bottom: 0;
+}
+
 /* ---------------------------------------------------------------------------
    Header / Encabezado
    --------------------------------------------------------------------------- */
