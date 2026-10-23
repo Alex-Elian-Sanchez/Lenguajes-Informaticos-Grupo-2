@@ -1,5 +1,5 @@
-/* ==========================================================================
-   Hoja de estilos del sitio — Minas Ithil y Minas Morgul
+﻿/* ==========================================================================
+   Hoja de estilos del sitio â€” Minas Ithil y Minas Morgul
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -35,7 +35,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Tipografía global y estilos del body
+   TipografÃ­a global y estilos del body
    -------------------------------------------------------------------------- */
 body {
     font-family: var(--fuente-principal), Georgia, serif;
@@ -57,7 +57,7 @@ html {
     background-attachment: fixed;
 }
 
-/* Headings: fuente, tamaño y color diferenciados */
+/* Headings: fuente, tamaÃ±o y color diferenciados */
 h1, h2, h3, h4 {
     font-family: var(--fuente-titulos), serif;
     font-weight: normal;
@@ -84,8 +84,8 @@ h4 {
 }
 
 /* --------------------------------------------------------------------------
-   Paleta temática de la ciudad: lado luminoso (Gondor) y lado pálido (Morgul)
-   Ambos comparten el fondo del site; se diferencian en colores de títulos.
+   Paleta temÃ¡tica de la ciudad: lado luminoso (Gondor) y lado pÃ¡lido (Morgul)
+   Ambos comparten el fondo del site; se diferencian en colores de tÃ­tulos.
    -------------------------------------------------------------------------- */
 .lado-claro {
     color: var(--color-texto-gondor);
@@ -466,7 +466,7 @@ form button[type="submit"]:hover {
 
 /* ==========================================================================
    Bootstrap - personalizaciones (Etapa 3)
-   Se agregan al final de la hoja: se amplía lo de la Etapa 2 sin reescribirlo.
+   Se agregan al final de la hoja: se amplÃ­a lo de la Etapa 2 sin reescribirlo.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -596,4 +596,119 @@ figure img[src*="images-wixmp"] {
     width: 100%;
     max-width: 800px;
     height: auto;
+}
+/* ==========================================================================
+   Flexbox (Integrante 3)
+   ========================================================================== */
+
+/* menu de navegacion horizontal en Guia de destinos destacados */
+#guia-rapida ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+#guia-rapida ul li a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-acento-gondor);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--color-primario-gondor);
+    font-size: 0.95rem;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+#guia-rapida ul li a:hover {
+    background-color: var(--color-primario-gondor);
+    color: #FFFFFF;
+}
+
+/* Tarjetas de lugares con flexbox */
+.lista-lugares {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.tarjeta-lugar {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 0;
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-acento-gondor);
+    border-top: 4px solid var(--color-primario-gondor);
+    border-left: 1px solid var(--color-acento-gondor);
+    border-radius: 6px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 14px rgba(27, 36, 48, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta-lugar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(27, 36, 48, 0.14);
+}
+
+/* Correccion de color  */
+.tarjeta-lugar.lado-oscuro {
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-acento-morgul);
+    border-top: 4px solid var(--color-primario-morgul);
+}
+
+.tarjeta-lugar.lado-oscuro figure img {
+    border-color: rgba(126, 163, 79, 0.4);
+}
+
+/* Imagenes simetricas dentro de las tarjetas */
+.tarjeta-lugar figure {
+    margin: 1rem 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.tarjeta-lugar figure img,
+.tarjeta-lugar figure img[src*="images-wixmp"] {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid rgba(78, 104, 136, 0.25);
+    display: block;
+}
+
+.tarjeta-lugar figcaption {
+    min-height: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.tarjeta-lugar p:last-child {
+    margin-top: auto;
+    padding-top: 1.25rem;
+}
+
+/* Flexbox en el formulario de contacto en nombre y correo electronico */
+.fila-formulario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+.campo-flex {
+    flex: 1 1 240px;
+    margin-bottom: 0.5rem;
 }
