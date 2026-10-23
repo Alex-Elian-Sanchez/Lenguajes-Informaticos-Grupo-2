@@ -1,5 +1,5 @@
 ﻿/* ==========================================================================
-   Hoja de estilos del sitio â€” Minas Ithil y Minas Morgul
+   Hoja de estilos del sitio — Minas Ithil y Minas Morgul
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -35,7 +35,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   TipografÃ­a global y estilos del body
+  Tipografía global y estilos del body
    -------------------------------------------------------------------------- */
 body {
     font-family: var(--fuente-principal), Georgia, serif;
@@ -57,7 +57,7 @@ html {
     background-attachment: fixed;
 }
 
-/* Headings: fuente, tamaÃ±o y color diferenciados */
+/* Headings: fuente, tamaño y color diferenciados */
 h1, h2, h3, h4 {
     font-family: var(--fuente-titulos), serif;
     font-weight: normal;
@@ -84,8 +84,8 @@ h4 {
 }
 
 /* --------------------------------------------------------------------------
-   Paleta temÃ¡tica de la ciudad: lado luminoso (Gondor) y lado pÃ¡lido (Morgul)
-   Ambos comparten el fondo del site; se diferencian en colores de tÃ­tulos.
+   Paleta temática de la ciudad: lado luminoso (Gondor) y lado pálido (Morgul)
+Ambos comparten el fondo del site; se diferencian en colores de títulos.
    -------------------------------------------------------------------------- */
 .lado-claro {
     color: var(--color-texto-gondor);
@@ -466,7 +466,7 @@ form button[type="submit"]:hover {
 
 /* ==========================================================================
    Bootstrap - personalizaciones (Etapa 3)
-   Se agregan al final de la hoja: se amplÃ­a lo de la Etapa 2 sin reescribirlo.
+   Se agregan al final de la hoja: se amplía lo de la Etapa 2 sin reescribirlo.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -711,4 +711,51 @@ figure img[src*="images-wixmp"] {
 .campo-flex {
     flex: 1 1 240px;
     margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   Cambios de diseño en la seccion de Datos Clave en la vista de ciudades.html
+   ========================================================================== */
+/* Contenedor de la lista de datos clave */
+#datos dl {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.6rem 0;
+    background-color: #FFFFFF;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--color-acento-gondor);
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(27, 36, 48, 0.06);
+}
+
+/* Termino  */
+#datos dt {
+    flex: 0 0 32%;
+    font-weight: bold;
+    color: var(--color-primario-gondor);
+    padding: 0.35rem 0;
+    border-bottom: 1px dashed rgba(78, 104, 136, 0.25);
+}
+
+/* Descripcion  */
+#datos dd {
+    flex: 0 0 68%;
+    margin: 0;
+    padding: 0.35rem 0;
+    color: var(--color-texto-gondor);
+    border-bottom: 1px solid rgba(78, 104, 136, 0.15);
+}
+
+@media (max-width: 600px) {
+    #datos dt,
+    #datos dd {
+        flex: 0 0 100%;
+    }
+    
+    #datos dt {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
 }
