@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La ciudad | Minas Ithil y Minas Morgul</title>
+    <title>La ciudad | Portal de Turismo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Lora:wght@400;700&display=swap" rel="stylesheet">
@@ -20,7 +20,14 @@
         [hidden] { display: none !important; }
         html[data-bs-theme="dark"] {
             color-scheme: dark;
-            background: #0b1410;
+            background-color: #0b1410;
+            background-image:
+                linear-gradient(rgba(11, 20, 16, 0.86), rgba(11, 20, 16, 0.86)),
+                url("IMG/papiro.jpg");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
             --color-fondo-gondor: #16231c;
             --color-texto-gondor: #e4eee5;
             --color-primario-gondor: #b6dfa1;
@@ -89,7 +96,16 @@
         }
         .selector-tema { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .75rem; margin: 1rem 0; }
         .selector-tema select { width: auto; max-width: 100%; }
-        #imagen-ciudad { width: 100%; max-height: 420px; object-fit: contain; }
+
+        @media (max-width: 1100px) {
+            html[data-bs-theme="dark"] { background-image: none; }
+            html[data-bs-theme="dark"]::before {
+                background:
+                    linear-gradient(rgba(11, 20, 16, 0.88), rgba(11, 20, 16, 0.88)),
+                    url("IMG/papiro.jpg") center / cover no-repeat;
+            }
+            html[data-bs-theme="dark"] body { background-color: transparent; }
+        }
     </style>
 </head>
 <body>
@@ -112,41 +128,38 @@
                 </div>
             </div>
         </nav>
-        <h1>Minas Ithil y Minas Morgul</h1>
-        <p><em id="descripcion-ciudad">La Torre de la Luna Naciente.</em></p>
+        <h1>La ciudad</h1>
+        <p><em id="descripcion-ciudad">Información turística de la ciudad.</em></p>
         <div class="selector-tema">
             <label for="modo-tema">Apariencia y ciudad</label>
             <select id="modo-tema" class="form-select">
-                <option value="system">Según el sistema</option>
+                <option value="system">Automático (según el sistema)</option>
                 <option value="light">Claro — Minas Ithil</option>
                 <option value="dark">Oscuro — Minas Morgul</option>
             </select>
         </div>
-        <p id="estado-tema" role="status" aria-live="polite"></p>
 
     </header>
 
     <main>
-        <figure>
-            <img id="imagen-ciudad" src="IMG/minas_ithil.jpg" alt="Minas Ithil bajo la luna">
-            <figcaption id="nombre-imagen">Minas Ithil</figcaption>
-        </figure>
-
-
         <section id="presentacion">
-            <h2>Una ciudad, dos nombres</h2>
-            <p>
-                En las faldas de las <strong>Montañas de la Sombra</strong>
-                (Ephel Dúath) se levanta una ciudad fundada con el nombre de
-                <strong>Minas Ithil</strong> y rebautizada más tarde como
-                <strong>Minas Morgul</strong>. Estas dos identidades conviven hoy, y
-                esta página las presenta por separado: la historia, la identidad, los
-                barrios y las costumbres de cada una.
+            <h2 data-ciudad-tema="light">Minas Ithil, la Ciudadela de la Luna</h2>
+            <h2 data-ciudad-tema="dark">Minas Morgul, la Torre de la Hechicería</h2>
+            <p data-ciudad-tema="light">
+                En las faldas de las <strong>Montañas de la Sombra</strong> (Ephel Dúath) se levanta
+                <strong>Minas Ithil</strong>, fundada por Isildur para custodiar el paso hacia Mordor.
+                Esta página recorre su historia, su identidad, sus barrios y sus costumbres.
+            </p>
+            <p data-ciudad-tema="dark">
+                En las faldas de las <strong>Montañas de la Sombra</strong> (Ephel Dúath) se levanta
+                <strong>Minas Morgul</strong>, la Torre de la Hechicería, surgida tras la conquista de la
+                antigua fortaleza por los Nazgûl. Esta página recorre su historia, su identidad, sus
+                barrios y sus costumbres.
             </p>
             <nav aria-label="Secciones de esta página">
                 <ul>
-                    <li data-ciudad-tema="light"><a href="#minas-ithil">Minas Ithil — el lado luminoso</a></li>
-                    <li data-ciudad-tema="dark"><a href="#minas-morgul">Minas Morgul — el lado tenebroso</a></li>
+                    <li data-ciudad-tema="light"><a href="#minas-ithil">Minas Ithil — recorrido completo</a></li>
+                    <li data-ciudad-tema="dark"><a href="#minas-morgul">Minas Morgul — recorrido completo</a></li>
                     <li><a href="#datos">Datos clave</a></li>
                 </ul>
             </nav>
@@ -155,10 +168,11 @@
         <figure>
             <img
                 src="IMG/mapa.jpeg"
-                alt="Mapa de la región con Minas Ithil, Minas Morgul y la cordillera Ephel Dúath">
+                alt="Mapa de la región del valle con la cordillera Ephel Dúath">
             <figcaption>
-                <strong>Figura 1 — Mapa de la región.</strong>
-                Minas Ithil, primero, y luego Minas Morgul, en las faldas del Ephel Dúath.
+                <strong>Mapa de la región.</strong>
+                <span data-ciudad-tema="light">Minas Ithil, en las faldas del Ephel Dúath.</span>
+                <span data-ciudad-tema="dark">Minas Morgul, en las faldas del Ephel Dúath.</span>
             </figcaption>
         </figure>
 
@@ -168,8 +182,9 @@
             <h3>Historia</h3>
             <ol>
                 <li>
-                    <strong>Segunda Edad, año 3320.</strong> <strong>Isildur</strong>
-                    funda Minas Ithil para custodiar el paso hacia Mordor y la
+                    <strong>Segunda Edad, hacia el año 3320.</strong> Tras la
+                    fundación de Gondor, <strong>Isildur</strong> funda Minas Ithil
+                    para custodiar el paso hacia Mordor y la
                     convierte en su residencia en Ithilien. En la torre guarda la
                     <em>Piedra de Ithil</em> (una de las palantíri) y ante su casa
                     crece un retoño del <em>Árbol Blanco</em>.
@@ -177,7 +192,7 @@
                 <li>
                     <strong>Segunda Edad, año 3429.</strong> Sauron toma la ciudad por
                     sorpresa y quema el árbol. Isildur escapa hacia el oeste llevando
-                    consigo una semilla y la palantír, y comienza la Guerra de la
+                    consigo una semilla del Árbol Blanco, y comienza la Guerra de la
                     Última Alianza.
                 </li>
                 <li>
@@ -186,9 +201,9 @@
                     sobre las tierras de Mordor.
                 </li>
                 <li>
-                    <strong>Tercera Edad, año 1636.</strong> La Gran Peste arrasa el
-                    valle y casi despuebla la ciudad, que queda bajo el mando de una
-                    pequeña guarnición y debilita la vigilancia de las fronteras.
+                    <strong>Tercera Edad, año 1636.</strong> La Gran Peste llega a
+                    Gondor y vacía a Minas Ithil de sus habitantes; las fortalezas
+                    que vigilaban Mordor quedan abandonadas al retirarse las tropas.
                 </li>
             </ol>
 
@@ -208,20 +223,39 @@
             <ul>
                 <li>
                     <h4>El Distrito de la Cúspide</h4>
-                    <p><a href="lugares.html#torre-central">Ver este lugar en la guía de lugares</a></p>
+                    <p><a href="lugares.html#torre-central">Ver la ficha del atractivo</a></p>
                     <p>
                         El casco más alto de la <strong>Ciudadela de la Luna</strong>,
                         donde se alza la gran torre de muchas ventanas y el palacio
                         del <em>Custodio de la Luna</em>. Es el punto desde el que
-                        mejor se aprecian los dos lados de la ciudad al atardecer.
+                        mejor se aprecian los jardines y el valle al atardecer.
                     </p>
                 </li>
                 <li>
-                    <h4>Los Jardines de la Ithildín</h4>
+                    <h4>El Árbol Blanco</h4>
+                    <p><a href="lugares.html#arbol-blanco">Ver la ficha del atractivo</a></p>
                     <p>
-                        Terrazas de flores que solo se abren de noche, iluminadas por
-                        la luna, con caminos de suave brillo. Se cultivan desde la
-                        fundación de la ciudad.
+                        En la explanada de la ciudadela creció el primer Árbol Blanco de
+                        Gondor, sembrado con un fruto de Nimloth. Sauron lo quemó al
+                        tomar la ciudad en el 3429 de la Segunda Edad, e Isildur huyó
+                        llevando consigo una semilla.
+                    </p>
+                </li>
+                <li>
+                    <h4>Las Murallas de la Luna</h4>
+                    <p><a href="lugares.html#murallas-luna">Ver la ficha del atractivo</a></p>
+                    <p>
+                        El anillo de mármol blanco que ciñe la ciudadela y su
+                        <strong>Puerta de la Luna</strong>, el acceso norte desde el
+                        valle y el trazado de la guardia original.
+                    </p>
+                </li>
+                <li>
+                    <h4>Los Jardines de la Ciudadela</h4>
+                    <p><a href="lugares.html#jardines-ciudadela">Ver la ficha del atractivo</a></p>
+                    <p>
+                        Terrazas ajardinadas con fuentes de piedra y miradores sobre el
+                        valle de Ithilien, pensadas para el paseo al atardecer.
                     </p>
                 </li>
                 <li>
@@ -234,7 +268,6 @@
                 </li>
                 <li>
                     <h4>Las Praderas del Puente Blanco</h4>
-                    <p><a href="lugares.html#puente-blanco">Ver este lugar en la guía de lugares</a></p>
                     <p>
                         Los prados a ambas orillas del Ithilduin, junto al puente de
                         piedra caliza. En primavera se celebran allí las ferias de
@@ -278,7 +311,7 @@
                     src="IMG/minas_ithil.jpg"
                     alt="Vista de las terrazas de mármol blanco de Minas Ithil brillando bajo la luz de la luna">
                 <figcaption>
-                    <strong>Figura 2 — La ciudadela de Minas Ithil bajo la luna.</strong>
+                    <strong>La ciudadela de Minas Ithil bajo la luna.</strong>
                     Terraza de la Ciudadela de la Luna, el lado luminoso de la ciudad.
                 </figcaption>
             </figure>
@@ -296,9 +329,9 @@
                 </li>
                 <li>
                     <strong>Tercera Edad, años 2000–2002.</strong> Tras un sitio de
-                    dos años, la ciudad cae en manos de los Nazgûl y su palantír pasa
-                    a Sauron. Gondor la rebautiza <strong>Minas Morgul</strong>, la
-                    Torre de la Hechicería.
+                    dos años, <strong>Minas Ithil</strong> cae en manos de los Nazgûl y su palantír pasa
+                    a Sauron. Desde entonces se la llama <strong>Minas Morgul</strong>,
+                    la Torre de la Hechicería, en la lengua de Gondor.
                 </li>
                 <li>
                     <strong>Tercera Edad, año 2050.</strong> El rey Eärnur acepta el
@@ -312,8 +345,9 @@
                 </li>
                 <li>
                     <strong>Cuarta Edad.</strong> Tras la caída de Sauron, el rey
-                    Elessar ordena derribar la fortaleza y Faramir, junto con los
-                    Montaraces de Ithilien, purga el valle.
+                    Elessar dispone que la fortaleza sea derribada por completo y
+                    encomienda a Faramir el señorío de Ithilien. No se sabe si la
+                    ciudad llegó a reconstruirse.
                 </li>
             </ol>
 
@@ -340,26 +374,40 @@
                     </p>
                 </li>
                 <li>
-                    <h4>La Puerta del Crepúsculo</h4>
+                    <h4>Las Murallas de Morgul</h4>
+                    <p><a href="lugares.html#murallas-morgul">Ver la ficha del atractivo</a></p>
                     <p>
-                        El arco fronterizo que marca el límite entre el lado luminoso
-                        y las laderas del valle. Al anochecer, las linternas de la
-                        ciudadela y las luces pálidas del valle pueden verse a la vez
-                        desde sus escalones.
+                        El recinto amurallado que protege la ciudadela y sus terrazas,
+                        visible desde el valle entre la niebla y el resplandor verdoso.
                     </p>
                 </li>
                 <li>
                     <h4>Las Terrazas Botánicas de la Flor Pálida</h4>
-                    <p><a href="lugares.html#terrazas-silenciosas">Ver este lugar en la guía de lugares</a></p>
+                    <p><a href="lugares.html#terrazas-silenciosas">Ver la ficha del atractivo</a></p>
                     <p>
                         Antiguas terrazas de cultivo junto a la Ciénaga de la Ruina,
-                        hoy convertidas en una reserva de flores pálidas y luminosas
-                        que desprenden un aroma denso al caer el sol.
+                        hoy convertidas en una reserva de flores pálidas que desprenden
+                        un aroma denso y enfermizo al caer el sol.
+                    </p>
+                </li>
+                <li>
+                    <h4>La Torre de Morgul</h4>
+                    <p><a href="lugares.html#torre-morgul">Ver la ficha del atractivo</a></p>
+                    <p>
+                        La torre más alta de la ciudad, con muchas ventanas y un remate
+                        que gira lentamente bajo una luz pálida y fría.
+                    </p>
+                </li>
+                <li>
+                    <h4>La Puerta de Morgul</h4>
+                    <p><a href="lugares.html#puerta-morgul">Ver la ficha del atractivo</a></p>
+                    <p>
+                        El acceso tallado como una boca abierta con dientes y ojos,
+                        al final del camino de Morgul y tras el puente sobre el río.
                     </p>
                 </li>
                 <li>
                     <h4>El Puente Blanco sobre el Morgulduin</h4>
-                    <p><a href="lugares.html#puente-blanco">Ver este lugar en la guía de lugares</a></p>
                     <p>
                         El antiguo puente de piedra caliza sobre el Morgulduin,
                         coronado por estatuas corrompidas. Conserva su estructura y
@@ -381,17 +429,16 @@
                 <li>
                     <h4>Los Narradores de la Ruina</h4>
                     <p>
-                        Cuentacuentos que en las plazas del Barrio del Espejo recrean
-                        las crónicas de la caída y de la restauración. De este modo, la
-                        ciudad recuerda que sus dos lados son parte de una misma
-                        historia.
+                        Cuentacuentos que en las plazas del valle recrean las crónicas
+                        de la caída y del dominio de los Nazgûl. De este modo, la ciudad
+                        conserva la memoria de su historia.
                     </p>
                 </li>
                 <li>
                     <h4>El Voto del Vigilante</h4>
                     <p>
                         Los guardias que custodian el valle juran, al terminar su
-                        turno, no mirar atrás hasta llegar a la Puerta del Crepúsculo.
+                        turno, no mirar atrás hasta llegar a la Puerta de Morgul.
                         Quien rompe el voto debe esperar a la próxima luna llena para
                         volver a la guardia.
                     </p>
@@ -403,7 +450,7 @@
                     src="IMG/minas_morgul.jpeg"
                     alt="La fortaleza de Minas Morgul envuelta en una luz verde pálida entre las brumas del valle">
                 <figcaption>
-                    <strong>Figura 3 — La fortaleza de Minas Morgul.</strong>
+                    <strong>La fortaleza de Minas Morgul.</strong>
                     La fortaleza del lado tenebroso, velada por las brumas del valle.
                 </figcaption>
             </figure>
@@ -412,37 +459,39 @@
 
 
          <section id="comparativa-ciudades">
-            <h2>Tabla Comparativa del Valle</h2>
-            <p>Un resumen de las diferencias clave entre ambos períodos de la fortaleza a lo largo de la historia:</p>
+            <h2 data-ciudad-tema="light">Rasgos de Minas Ithil</h2>
+            <h2 data-ciudad-tema="dark">Rasgos de Minas Morgul</h2>
+            <p data-ciudad-tema="light">Un resumen de los rasgos que definieron a Minas Ithil en su época de esplendor:</p>
+            <p data-ciudad-tema="dark">Un resumen de los rasgos que definieron a Minas Morgul desde la conquista de los Nazgûl:</p>
             <div class="table-responsive">
                 <table>
                     <thead>
                         <tr>
                             <th>Característica</th>
-                            <th>Minas Ithil (Lado Luminoso)</th>
-                            <th>Minas Morgul (Lado Tenebroso)</th>
+                            <th data-ciudad-tema="light">Minas Ithil</th>
+                            <th data-ciudad-tema="dark">Minas Morgul</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><strong>Época de esplendor</strong></td>
-                            <td>Segunda y principios de la Tercera Edad.</td>
-                            <td>Desde la conquista de los Nazgûl en adelante.</td>
+                            <td data-ciudad-tema="light">Segunda y principios de la Tercera Edad.</td>
+                            <td data-ciudad-tema="dark">Desde la conquista de los Nazgûl en adelante.</td>
                         </tr>
                         <tr>
                             <td><strong>Materiales y aspecto</strong></td>
-                            <td>Mármol blanco pulido reflectante de la luna.</td>
-                            <td>Piedra oscura con resplandor verdoso y pálido.</td>
+                            <td data-ciudad-tema="light">Mármol blanco pulido reflectante de la luna.</td>
+                            <td data-ciudad-tema="dark">Piedra oscura con resplandor verdoso y pálido.</td>
                         </tr>
                         <tr>
                             <td><strong>Río principal</strong></td>
-                            <td>Ithilduin (Río de la Luna).</td>
-                            <td>Morgulduin (Río de la Hechicería).</td>
+                            <td data-ciudad-tema="light">Ithilduin (Río de la Luna).</td>
+                            <td data-ciudad-tema="dark">Morgulduin (Río de la Hechicería).</td>
                         </tr>
                         <tr>
                             <td><strong>Gobernante principal</strong></td>
-                            <td>Isildur y los herederos de Gondor.</td>
-                            <td>El Rey Brujo de Angmar, señor de los Nazgûl.</td>
+                            <td data-ciudad-tema="light">Isildur y los herederos de Gondor.</td>
+                            <td data-ciudad-tema="dark">El Rey Brujo de Angmar, señor de los Nazgûl.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -463,7 +512,7 @@
                 <dd>unos 10.000 habitantes aproximadamente</dd>
 
                 <dt>Año de fundación</dt>
-                <dd>3320 de la Segunda Edad, por Isildur</dd>
+                <dd>hacia 3320 de la Segunda Edad, por Isildur, tras la fundación de Gondor</dd>
 
                 <dt>Río</dt>
                 <dd>el Ithilduin</dd>
@@ -478,7 +527,7 @@
                 <dd>Isildur y sus sucesores hasta la caída</dd>
 
                 <dt>Emblema</dt>
-                <dd>el Árbol Blanco, el retoño de Nimloth que crecía ante la casa de Isildur</dd>
+                <dd>el Árbol Blanco, el retoño de Nimloth que crecía en la explanada de la ciudadela</dd>
             </dl>
 
             <h3 data-ciudad-tema="dark">Minas Morgul — la Torre de la Hechicería</h3>
@@ -489,8 +538,8 @@
                 <dt>Población</dt>
                 <dd>se desconoce</dd>
 
-                <dt>Año de la caída</dt>
-                <dd>2002 de la Tercera Edad, cuando cayó definitivamente Minas Ithil</dd>
+                <dt>Año de fundación</dt>
+                <dd>hacia 3320 de la Segunda Edad, como Minas Ithil; desde 2002 de la Tercera Edad lleva el nombre de Minas Morgul</dd>
 
                 <dt>Río</dt>
                 <dd>el Morgulduin, tras la caída</dd>
@@ -508,10 +557,17 @@
                 <dd>una luna desfigurada con un rostro de muerte</dd>
             </dl>
 
-            <h3>Datos compartidos</h3>
-            <dl>
+            <h3>Datos de la región</h3>
+            <dl data-ciudad-tema="light">
                 <dt>Región</dt>
-                <dd>Ithilien, en la vertiente occidental del Ephel Dúath, junto al valle de Morgul</dd>
+                <dd>Ithilien, en la vertiente occidental del Ephel Dúath, junto al río Ithilduin</dd>
+
+                <dt>Clima</dt>
+                <dd>serrano, con noches frías y claras y nieblas matinales en el valle</dd>
+            </dl>
+            <dl data-ciudad-tema="dark">
+                <dt>Región</dt>
+                <dd>en la vertiente occidental del Ephel Dúath, junto al valle de Morgul</dd>
 
                 <dt>Clima</dt>
                 <dd>serrano, con noches frías y claras y nieblas matinales en el valle</dd>
@@ -521,7 +577,8 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Ente Oficial de Turismo y Patrimonio de Minas Ithil y Minas Morgul.</p>
+        <p data-ciudad-tema="light">&copy; 2026 Ente Oficial de Turismo y Patrimonio de Minas Ithil.</p>
+        <p data-ciudad-tema="dark">&copy; 2026 Ente Oficial de Turismo y Patrimonio de Minas Morgul.</p>
         <nav aria-label="Navegación del pie de página">
             <a href="#inicio">Volver arriba</a>
         </nav>

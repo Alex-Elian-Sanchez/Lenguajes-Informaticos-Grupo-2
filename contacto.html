@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-titulo-claro="Contacto | Oficina de Turismo de Minas Ithil" data-titulo-oscuro="Contacto | Oficina de Turismo de Minas Morgul">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto | Oficina de Turismo de Minas Ithil y Minas Morgul</title>
+    <title>Contacto | Oficina de Turismo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Lora:wght@400;700&display=swap" rel="stylesheet">
@@ -11,6 +11,144 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="CSS/estilos.css">
+    <style>
+        /* Tema Ithil/Morgul. Al centralizar los estilos, este bloque pasa a CSS/tema.css. */
+        html[data-bs-theme="light"] {
+            --bs-link-color-rgb: 35, 50, 74;
+            --bs-link-hover-color-rgb: 122, 90, 18;
+        }
+        [hidden] { display: none !important; }
+        .selector-tema { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .75rem; margin: 1rem 0; }
+        .selector-tema select { width: auto; max-width: 100%; }
+
+        html[data-bs-theme="dark"] {
+            color-scheme: dark;
+            background-color: #0b1410;
+            background-image:
+                linear-gradient(rgba(11, 20, 16, 0.86), rgba(11, 20, 16, 0.86)),
+                url("IMG/papiro.jpg");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            --color-fondo-gondor: #16231c;
+            --color-texto-gondor: #e4eee5;
+            --color-primario-gondor: #b6dfa1;
+            --color-secundario-gondor: #d2d997;
+            --color-acento-gondor: #638566;
+            --color-fondo-morgul: #1c3024;
+            --color-texto-morgul: #e4eee5;
+            --color-primario-morgul: #b6dfa1;
+            --color-secundario-morgul: #d2d997;
+            --color-acento-morgul: #638566;
+            --bs-link-color: #b6dfa1;
+            --bs-link-hover-color: #d2d997;
+            --bs-link-color-rgb: 182, 223, 161;
+            --bs-link-hover-color-rgb: 225, 245, 211;
+        }
+        html[data-bs-theme="dark"]::before { background: none; }
+        html[data-bs-theme="dark"] body { background: #101c16; }
+        html[data-bs-theme="dark"] header,
+        html[data-bs-theme="dark"] header > .navbar,
+        html[data-bs-theme="dark"] footer { background: #182c20; color: #e4eee5; }
+        html[data-bs-theme="dark"] header p,
+        html[data-bs-theme="dark"] footer { color: #e4eee5; }
+        html[data-bs-theme="dark"] .navbar-dark {
+            --bs-navbar-color: #e4eee5;
+            --bs-navbar-hover-color: #ffffff;
+        }
+        html[data-bs-theme="dark"] .navbar-nav .nav-link.active { background: #36552d; }
+        html[data-bs-theme="dark"] .btn-primary {
+            --bs-btn-color: #101c16;
+            --bs-btn-bg: #b6dfa1;
+            --bs-btn-border-color: #b6dfa1;
+            --bs-btn-hover-color: #101c16;
+            --bs-btn-hover-bg: #d2edc4;
+            --bs-btn-hover-border-color: #d2edc4;
+            --bs-btn-active-color: #101c16;
+            --bs-btn-active-bg: #d2edc4;
+            --bs-btn-active-border-color: #d2edc4;
+        }
+        html[data-bs-theme="dark"] .btn-outline-secondary {
+            --bs-btn-hover-color: #101c16;
+            --bs-btn-active-color: #101c16;
+        }
+        html[data-bs-theme="dark"] header nav a:hover,
+        html[data-bs-theme="dark"] footer nav a:hover {
+            background-color: #36552d;
+            color: #ffffff;
+        }
+        html[data-bs-theme="dark"] footer nav a {
+            color: #e4eee5;
+            border-color: #8eb780;
+        }
+        html[data-bs-theme="dark"] footer nav a:focus-visible {
+            color: #ffffff;
+            background-color: #36552d;
+            outline: 2px solid #b6dfa1;
+            outline-offset: 3px;
+        }
+
+        /* Tarjetas, figuras y formulario de contacto */
+        html[data-bs-theme="dark"] .card {
+            background-color: #16231c;
+            border-color: #638566;
+            --bs-card-bg: #16231c;
+            --bs-card-color: #e4eee5;
+            --bs-card-border-color: #638566;
+        }
+        html[data-bs-theme="dark"] .card-title { color: #b6dfa1; }
+        html[data-bs-theme="dark"] .card:hover { box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5); }
+        html[data-bs-theme="dark"] figure {
+            background-color: #1c3024;
+            border-color: #638566;
+        }
+        html[data-bs-theme="dark"] figcaption { color: #e4eee5; }
+        html[data-bs-theme="dark"] fieldset {
+            background-color: #16231c;
+            border-color: #638566;
+        }
+        html[data-bs-theme="dark"] legend { color: #b6dfa1; }
+        html[data-bs-theme="dark"] form label { color: #e4eee5; }
+        html[data-bs-theme="dark"] form input[type="text"],
+        html[data-bs-theme="dark"] form input[type="email"],
+        html[data-bs-theme="dark"] form input[type="tel"],
+        html[data-bs-theme="dark"] form select,
+        html[data-bs-theme="dark"] form textarea {
+            background-color: #1c3024;
+            color: #e4eee5;
+            border-color: #638566;
+        }
+        html[data-bs-theme="dark"] form input:hover,
+        html[data-bs-theme="dark"] form select:hover,
+        html[data-bs-theme="dark"] form textarea:hover { border-color: #b6dfa1; }
+        html[data-bs-theme="dark"] form input:focus,
+        html[data-bs-theme="dark"] form select:focus,
+        html[data-bs-theme="dark"] form textarea:focus {
+            background-color: #223a2b;
+            border-color: #b6dfa1;
+            box-shadow: 0 0 0 0.2rem rgba(182, 223, 161, 0.2);
+        }
+        html[data-bs-theme="dark"] form button[type="submit"] {
+            background-color: #b6dfa1;
+            color: #101c16;
+        }
+        html[data-bs-theme="dark"] form button[type="submit"]:hover {
+            background-color: #d2edc4;
+        }
+        html[data-bs-theme="dark"] #redes .bi { color: #d2d997; }
+        html[data-bs-theme="dark"] #redes a:hover .bi { color: #b6dfa1; }
+
+        @media (max-width: 1100px) {
+            html[data-bs-theme="dark"] { background-image: none; }
+            html[data-bs-theme="dark"]::before {
+                background:
+                    linear-gradient(rgba(11, 20, 16, 0.88), rgba(11, 20, 16, 0.88)),
+                    url("IMG/papiro.jpg") center / cover no-repeat;
+            }
+            html[data-bs-theme="dark"] body { background-color: transparent; }
+        }
+    </style>
 </head>
 <body>
     <header id="inicio">
@@ -32,19 +170,38 @@
             </div>
         </nav>
         <h1>Contacto</h1>
-        <p>
-            <em>¿Tenés dudas, querés reservar una visita guiada o necesitás más información? Estamos para ayudarte.</em>
+        <p data-ciudad-tema="light">
+            <em>¿Querés reservar una visita guiada por Minas Ithil o necesitás más información? Estamos para ayudarte.</em>
         </p>
+        <p data-ciudad-tema="dark">
+            <em>¿Querés reservar un recorrido por Minas Morgul o necesitás más información? Estamos para ayudarte.</em>
+        </p>
+        <div class="selector-tema">
+            <label for="modo-tema">Apariencia y ciudad</label>
+            <select id="modo-tema" class="form-select">
+                <option value="system">Automático (según el sistema)</option>
+                <option value="light">Claro — Minas Ithil</option>
+                <option value="dark">Oscuro — Minas Morgul</option>
+            </select>
+        </div>
     </header>
 
     <main>
         <section id="introduccion">
             <h2>Estamos para ayudarte</h2>
             <p>
-                La <strong>Oficina de Turismo de Minas Ithil y Minas Morgul</strong> es el punto de
-                información oficial para visitantes. Si querés conocer los circuitos guiados,
-                resolver dudas sobre los atractivos o recibir recomendaciones para tu visita,
-                podés contactarnos por cualquiera de los canales que figuran abajo.
+                La <strong>Oficina de Turismo</strong> es el punto de información oficial para
+                visitantes. Si querés conocer los circuitos guiados, resolver dudas sobre los
+                atractivos o recibir recomendaciones para tu visita, podés contactarnos por
+                cualquiera de los canales que figuran abajo.
+            </p>
+            <p data-ciudad-tema="light">
+                En <strong>Minas Ithil</strong> podés consultar por los circuitos de la
+                Ciudadela de la Luna, el Árbol Blanco y el Festival de la Luna Llena.
+            </p>
+            <p data-ciudad-tema="dark">
+                En <strong>Minas Morgul</strong> podés consultar por los recorridos guiados de la
+                Puerta de Morgul, la Ciénaga de la Ruina y las terrazas de la Flor Pálida.
             </p>
             <p>
                 También podés enviarnos tu consulta directamente desde el
@@ -68,10 +225,6 @@
                     información sobre recorridos adaptados. Escribinos y te enviamos los detalles.
                 </li>
             </ul>
-            <p>
-                Si tu consulta es urgente, te recomendamos llamar directamente al
-                <a href="tel:+541123456789">+54 11 2345-6789</a>.
-            </p>
         </aside>
 
         <section id="datos-contacto">
@@ -82,7 +235,7 @@
                         <article id="direccion" class="card h-100">
                             <div class="card-body">
                                 <h3 class="card-title">Dirección</h3>
-                                <address>
+                                <address data-ciudad-tema="light">
                                     <p>
                                         Oficina de Turismo y Patrimonio<br>
                                         Avenida de la Luna, 123<br>
@@ -90,10 +243,21 @@
                                         Ithilien, Tierra Media
                                     </p>
                                 </address>
+                                <address data-ciudad-tema="dark">
+                                    <p>
+                                        Oficina de Turismo y Patrimonio<br>
+                                        Camino de Morgul, 13<br>
+                                        Torre de la Hechicería, Minas Morgul<br>
+                                        Valle de Morgul, Tierra Media
+                                    </p>
+                                </address>
                                 <figure>
                                     <img src="https://images.unsplash.com/photo-1758648997732-dd99beaae773?q=80&amp;w=870&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                                          alt="Fachada del edificio de la oficina de atención presencial al turista.">
-                                    <figcaption>Sede física de la Oficina de Turismo en la Ciudadela de la Luna.</figcaption>
+                                    <figcaption>
+                                        <span data-ciudad-tema="light">Sede física de la Oficina de Turismo en la Ciudadela de la Luna.</span>
+                                        <span data-ciudad-tema="dark">Sede física de la Oficina de Turismo en la Torre de la Hechicería.</span>
+                                    </figcaption>
                                 </figure>
                             </div>
                         </article>
@@ -105,17 +269,22 @@
                                 <ul>
                                     <li>
                                         <strong>Teléfono:</strong>
-                                        <a href="tel:+541123456789">+54 11 2345-6789</a>
+                                        <span data-ciudad-tema="light"><a href="tel:+541123456789">+54 11 2345-6789</a></span>
+                                        <span data-ciudad-tema="dark"><a href="tel:+541161239087">+54 11 6123-9087</a></span>
                                     </li>
                                     <li>
                                         <strong>Correo electrónico:</strong>
-                                        <a href="mailto:contacto@minasithil.com">contacto@minasithil.com</a>
+                                        <span data-ciudad-tema="light"><a href="mailto:contacto@minasithil.com">contacto@minasithil.com</a></span>
+                                        <span data-ciudad-tema="dark"><a href="mailto:contacto@minasmorgul.com">contacto@minasmorgul.com</a></span>
                                     </li>
                                 </ul>
                                 <figure>
                                     <img src="https://plus.unsplash.com/premium_photo-1661962650430-9547442d54f4?q=80&amp;w=872&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                                          alt="Mostrador del centro de atención y guías para asistencia a turistas y expedicionarios">
-                                    <figcaption>Centro de informes y coordinación de visitas guiadas para visitantes.</figcaption>
+                                    <figcaption>
+                                        <span data-ciudad-tema="light">Centro de informes y coordinación de visitas guiadas para visitantes.</span>
+                                        <span data-ciudad-tema="dark">Centro de informes de Morgul y coordinación de visitas guiadas en el valle.</span>
+                                    </figcaption>
                                 </figure>
                             </div>
                         </article>
@@ -126,15 +295,25 @@
                                 <h3 class="card-title">Redes sociales</h3>
                                 <p>Seguinos para conocer novedades, eventos y recomendaciones:</p>
                                 <ul>
-                                    <li>
+                                    <li data-ciudad-tema="light">
                                         <a href="https://www.facebook.com/turismo.minasithil"
                                            target="_blank"
                                            rel="noopener noreferrer"><i class="bi bi-facebook" aria-hidden="true"></i> Facebook (Turismo Minas Ithil)</a>
                                     </li>
-                                    <li>
+                                    <li data-ciudad-tema="dark">
+                                        <a href="https://www.facebook.com/turismo.minasmorgul"
+                                           target="_blank"
+                                           rel="noopener noreferrer"><i class="bi bi-facebook" aria-hidden="true"></i> Facebook (Turismo Minas Morgul)</a>
+                                    </li>
+                                    <li data-ciudad-tema="light">
                                         <a href="https://www.instagram.com/turismo.minasithil"
                                            target="_blank"
                                            rel="noopener noreferrer"><i class="bi bi-instagram" aria-hidden="true"></i> Instagram (@turismo.minasithil)</a>
+                                    </li>
+                                    <li data-ciudad-tema="dark">
+                                        <a href="https://www.instagram.com/turismo.minasmorgul"
+                                           target="_blank"
+                                           rel="noopener noreferrer"><i class="bi bi-instagram" aria-hidden="true"></i> Instagram (@turismo.minasmorgul)</a>
                                     </li>
                                 </ul>
                             </div>
@@ -146,8 +325,9 @@
 
         <section id="horarios">
             <h2>Horarios de atención</h2>
-            <p>Nuestros canales de atención funcionan en los siguientes horarios:</p>
-            <dl>
+            <p data-ciudad-tema="light">Nuestros canales de atención funcionan en los siguientes horarios:</p>
+            <p data-ciudad-tema="dark">En Minas Morgul la atención es exclusivamente nocturna:</p>
+            <dl data-ciudad-tema="light">
                 <dt>Lunes a viernes</dt>
                 <dd>9:00 a 18:00</dd>
 
@@ -156,6 +336,10 @@
 
                 <dt>Domingos y feriados</dt>
                 <dd>Cerrado</dd>
+            </dl>
+            <dl data-ciudad-tema="dark">
+                <dt>Todos los días</dt>
+                <dd>20:00 a 4:00</dd>
             </dl>
         </section>
 
@@ -216,13 +400,15 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Ente Oficial de Turismo y Patrimonio de Minas Ithil y Minas Morgul.</p>
+        <p data-ciudad-tema="light">&copy; 2026 Ente Oficial de Turismo y Patrimonio de Minas Ithil.</p>
+        <p data-ciudad-tema="dark">&copy; 2026 Ente Oficial de Turismo y Patrimonio de Minas Morgul.</p>
         <nav aria-label="Navegación del pie de página">
             <a href="#inicio">Volver arriba</a>
         </nav>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/tema.js"></script>
 
 </body>
 </html>

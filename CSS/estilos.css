@@ -586,6 +586,25 @@ header > .navbar {
     align-self: flex-start;
 }
 
+/* La sección de identidad muestra una sola tarjeta por tema: ocupa todo el ancho. */
+#identidades .card-body.identidad-cuerpo {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr);
+    gap: 1rem 2.5rem;
+    align-items: center;
+}
+
+#identidades .identidad-cuerpo .card-title {
+    margin-bottom: 0;
+}
+
+@media (max-width: 767.98px) {
+    #identidades .card-body.identidad-cuerpo {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+}
+
 main > section > .container {
     width: auto;
     margin-right: -0.75rem;
@@ -631,33 +650,6 @@ figure img[src*="images-wixmp"] {
    Flexbox (Integrante 3)
    ========================================================================== */
 
-/* menu de navegacion horizontal en Guia de destinos destacados */
-#guia-rapida ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    list-style: none;
-    padding: 0;
-    margin-top: 1rem;
-}
-
-#guia-rapida ul li a {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: #FFFFFF;
-    border: 1px solid var(--color-acento-gondor);
-    border-radius: 4px;
-    text-decoration: none;
-    color: var(--color-primario-gondor);
-    font-size: 0.95rem;
-    transition: background-color 0.25s ease, color 0.25s ease;
-}
-
-#guia-rapida ul li a:hover {
-    background-color: var(--color-primario-gondor);
-    color: #FFFFFF;
-}
-
 /* Tarjetas de lugares con flexbox */
 .lista-lugares {
     display: flex;
@@ -667,7 +659,7 @@ figure img[src*="images-wixmp"] {
 }
 
 .tarjeta-lugar {
-    flex: 1 1 300px;
+    flex: 1 1 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -685,6 +677,12 @@ figure img[src*="images-wixmp"] {
 .tarjeta-lugar:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(27, 36, 48, 0.14);
+}
+
+@media (min-width: 768px) {
+    .tarjeta-lugar {
+        flex: 1 1 calc(50% - 0.75rem);
+    }
 }
 
 /* Correccion de color  */
@@ -711,11 +709,26 @@ figure img[src*="images-wixmp"] {
 .tarjeta-lugar figure img,
 .tarjeta-lugar figure img[src*="images-wixmp"] {
     width: 100%;
-    height: 220px;
+    height: auto;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
     border-radius: 4px;
     border: 1px solid rgba(78, 104, 136, 0.25);
     display: block;
+}
+
+/* La foto de la torre es cuadrada: se muestra completa, centrada y con una altura
+   similar a la de las demás fichas para no alargar la tarjeta. */
+.tarjeta-lugar figure img.imagen-torre {
+    width: min(100%, 350px);
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+/* La foto de las terrazas es panorámica: se recorta lo mínimo para conservar el paisaje. */
+.tarjeta-lugar figure img.imagen-terrazas {
+    aspect-ratio: 16 / 9;
 }
 
 .tarjeta-lugar figcaption {
@@ -808,6 +821,8 @@ figure img[src*="images-wixmp"] {
 
 #datos-contacto .card figure img {
     width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
 }
 
 #redes .bi {

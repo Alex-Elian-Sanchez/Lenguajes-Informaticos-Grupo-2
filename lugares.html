@@ -1,15 +1,123 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-titulo-claro="Atractivos y Circuitos Turísticos | Minas Ithil" data-titulo-oscuro="Atractivos y Circuitos Turísticos | Minas Morgul">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atractivos y Circuitos Turísticos | Portal Oficial de Minas Ithil y Minas Morgul</title>
+    <title>Atractivos y Circuitos Turísticos | Portal Oficial de Turismo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Lora:wght@400;700&display=swap" rel="stylesheet">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="CSS/estilos.css">
+    <style>
+        /* Tema Ithil/Morgul. Al centralizar los estilos, este bloque pasa a CSS/tema.css. */
+        html[data-bs-theme="light"] {
+            --bs-link-color-rgb: 35, 50, 74;
+            --bs-link-hover-color-rgb: 122, 90, 18;
+        }
+        [hidden] { display: none !important; }
+        .selector-tema { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .75rem; margin: 1rem 0; }
+        .selector-tema select { width: auto; max-width: 100%; }
+
+        html[data-bs-theme="dark"] {
+            color-scheme: dark;
+            background-color: #0b1410;
+            background-image:
+                linear-gradient(rgba(11, 20, 16, 0.86), rgba(11, 20, 16, 0.86)),
+                url("IMG/papiro.jpg");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            --color-fondo-gondor: #16231c;
+            --color-texto-gondor: #e4eee5;
+            --color-primario-gondor: #b6dfa1;
+            --color-secundario-gondor: #d2d997;
+            --color-acento-gondor: #638566;
+            --color-fondo-morgul: #1c3024;
+            --color-texto-morgul: #e4eee5;
+            --color-primario-morgul: #b6dfa1;
+            --color-secundario-morgul: #d2d997;
+            --color-acento-morgul: #638566;
+            --bs-link-color: #b6dfa1;
+            --bs-link-hover-color: #d2d997;
+            --bs-link-color-rgb: 182, 223, 161;
+            --bs-link-hover-color-rgb: 225, 245, 211;
+        }
+        html[data-bs-theme="dark"]::before { background: none; }
+        html[data-bs-theme="dark"] body { background: #101c16; }
+        html[data-bs-theme="dark"] header,
+        html[data-bs-theme="dark"] header > .navbar,
+        html[data-bs-theme="dark"] footer { background: #182c20; color: #e4eee5; }
+        html[data-bs-theme="dark"] header p,
+        html[data-bs-theme="dark"] footer { color: #e4eee5; }
+        html[data-bs-theme="dark"] .navbar-dark {
+            --bs-navbar-color: #e4eee5;
+            --bs-navbar-hover-color: #ffffff;
+        }
+        html[data-bs-theme="dark"] .navbar-nav .nav-link.active { background: #36552d; }
+        html[data-bs-theme="dark"] .btn-primary {
+            --bs-btn-color: #101c16;
+            --bs-btn-bg: #b6dfa1;
+            --bs-btn-border-color: #b6dfa1;
+            --bs-btn-hover-color: #101c16;
+            --bs-btn-hover-bg: #d2edc4;
+            --bs-btn-hover-border-color: #d2edc4;
+            --bs-btn-active-color: #101c16;
+            --bs-btn-active-bg: #d2edc4;
+            --bs-btn-active-border-color: #d2edc4;
+        }
+        html[data-bs-theme="dark"] .btn-outline-secondary {
+            --bs-btn-hover-color: #101c16;
+            --bs-btn-active-color: #101c16;
+        }
+        html[data-bs-theme="dark"] header nav a:hover,
+        html[data-bs-theme="dark"] footer nav a:hover {
+            background-color: #36552d;
+            color: #ffffff;
+        }
+        html[data-bs-theme="dark"] footer nav a {
+            color: #e4eee5;
+            border-color: #8eb780;
+        }
+        html[data-bs-theme="dark"] footer nav a:focus-visible {
+            color: #ffffff;
+            background-color: #36552d;
+            outline: 2px solid #b6dfa1;
+            outline-offset: 3px;
+        }
+
+        /* Tarjetas de lugares y guía rápida */
+        html[data-bs-theme="dark"] .tarjeta-lugar,
+        html[data-bs-theme="dark"] .tarjeta-lugar.lado-oscuro {
+            background-color: #16231c;
+            border-color: #638566;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+        }
+        html[data-bs-theme="dark"] .tarjeta-lugar { border-top-color: #b6dfa1; }
+        html[data-bs-theme="dark"] .tarjeta-lugar:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+        html[data-bs-theme="dark"] .etiqueta-imagen {
+            background-color: #638566;
+            color: #101c16;
+            border-color: rgba(255, 255, 255, 0.35);
+        }
+        html[data-bs-theme="dark"] .tarjeta-lugar.lado-oscuro .etiqueta-imagen {
+            background-color: #b6dfa1;
+        }
+
+        @media (max-width: 1100px) {
+            html[data-bs-theme="dark"] { background-image: none; }
+            html[data-bs-theme="dark"]::before {
+                background:
+                    linear-gradient(rgba(11, 20, 16, 0.88), rgba(11, 20, 16, 0.88)),
+                    url("IMG/papiro.jpg") center / cover no-repeat;
+            }
+            html[data-bs-theme="dark"] body { background-color: transparent; }
+        }
+    </style>
 </head>
 <body>
     <header id="inicio">
@@ -31,119 +139,248 @@
             </div>
         </nav>
         <h1>Circuitos y Atractivos Turísticos</h1>
-        <p>
-            <em>Descubra el contraste único entre el legado de mármol de la luna y el misterio crepuscular del valle.</em>
+        <p data-ciudad-tema="light">
+            <em>Recorra el esplendor de mármol de Minas Ithil, sus jardines y sus miradores bajo la luz de la luna.</em>
         </p>
+        <p data-ciudad-tema="dark">
+            <em>Descubra el misterio crepuscular de Minas Morgul, sus puentes de piedra y sus terrazas de flor pálida.</em>
+        </p>
+        <div class="selector-tema">
+            <label for="modo-tema">Apariencia y ciudad</label>
+            <select id="modo-tema" class="form-select">
+                <option value="system">Automático (según el sistema)</option>
+                <option value="light">Claro — Minas Ithil</option>
+                <option value="dark">Oscuro — Minas Morgul</option>
+            </select>
+        </div>
     </header>
 
     <main>
-        <section id="guia-rapida">
-            <h2>Guía de Destinos Destacados</h2>
-            <p>Seleccione un hito para acceder directamente a la ficha técnica del recorrido:</p>
-            <nav aria-label="Índice de atractivos">
-                <ul>
-                    <li><a href="#torre-central">1. La Gran Torre: De la Luna a la Hechicería</a></li>
-                    <li><a href="#puente-blanco">2. El Puente Blanco sobre el Morgulduin</a></li>
-                    <li><a href="#terrazas-silenciosas">3. Terrazas Botánicas de la Flor Pálida</a></li>
-                </ul>
-            </nav>
-        </section>
-
         <section id="catalogo">
             <h2>Hitos Patrimoniales y Paisajísticos</h2>
             <div class="lista-lugares">
-                <article id="torre-central" class="tarjeta-lugar lado-claro">
-                    <h3>1. La Gran Torre: De la Luna a la Hechicería</h3>
-                    <p><strong>Ubicación:</strong> Distrito de la Cúspide, Ciudadela de la Luna.</p>
+                <article id="torre-central" class="tarjeta-lugar lado-claro" data-ciudad-tema="light">
+                    <h3>1. La Gran Torre de la Luna Naciente</h3>
+                    <p><strong>Ubicación:</strong> Distrito de la Cúspide.</p>
+
                     <figure>
                         <img
                             src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1c3b1d29-8521-4907-91db-b94d4dc77cd9/d9v2jhm-bb926e3f-9487-4c10-a415-11f7b5dc4967.jpg/v1/fill/w_1600,h_1144,q_75,strp/minas_ithil__city_of_isildur_by_leptitsuisse1912_d9v2jhm-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTE0NCIsInBhdGgiOiIvZi8xYzNiMWQyOS04NTIxLTQ5MDctOTFkYi1iOTRkNGRjNzdjZDkvZDl2MmpobS1iYjkyNmUzZi05NDg3LTRjMTAtYTQxNS0xMWY3YjVkYzQ5NjcuanBnIiwid2lkdGgiOiI8PTE2MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.tJAK2qbLUWDv8X4H-gLRuh4r-eLrv7i1acDzjmVICU8"
                             alt="Torre de cantería blanca con almenas altas sobre el risco montañoso">
                         <span class="badge etiqueta-imagen">Patrimonio histórico</span>
                         <figcaption>
-                            <strong>Mirador de la Cúspide.</strong> Remate giratorio desde la plaza de armas alta.
+                            <strong>Mirador de la Cúspide.</strong> Vista desde la plaza de armas alta.
                         </figcaption>
                     </figure>
 
                     <p>
-                        Edificada originalmente en <strong>mármol blanco pulido</strong> bajo el reinado de Isildur para custodiar la <em>Piedra de Ithil</em>, esta torre es la obra cumbre de la ingeniería numenóreana en el valle. Su mecanismo astronómico superior sigue girando lentamente, y su fachada conjuga la arquitectura clásica con el icónico resplandor verdoso heredado del período de dominación de los Nazgûl.
+                        Torre de mármol blanco alzada bajo Isildur para custodiar la <em>Piedra de Ithil</em>.
+                        Su cima gira lentamente y sus terrazas conservan los jardines de la ciudadela.
                     </p>
 
-                    <h4>Experiencias y actividades recomendadas</h4>
+                    <h4>Imperdibles</h4>
                     <ul>
-                        <li>Visita guiada a los salones astronómicos y a la sala del antiguo <em>Custodio de la Luna</em>.</li>
-                        <li>Ascenso nocturno al mirador panorámico durante el giro cenital de medianoche.</li>
-                        <li>Recorrido fotográfico por la transición estilística entre la cantería gondoriana y los arcos de hierro.</li>
+                        <li>Ascenso nocturno al mirador.</li>
+                        <li>Visita a las salas astronómicas.</li>
                     </ul>
 
-                    <h4>¿Por qué incluirlo en su visita?</h4>
-                    <p>
-                        Es el emblema histórico indiscutido de la región: un monumento que resume en un único edificio los dos grandes períodos de la ciudadela.
-                    </p>
                     <p><a class="btn btn-outline-secondary" href="contacto.html">Consultar por este circuito</a></p>
                 </article>
 
-                <article id="puente-blanco" class="tarjeta-lugar lado-oscuro">
-                    <h3>2. El Puente Blanco sobre el Morgulduin</h3>
-                    <p><strong>Ubicación:</strong> Acceso oeste, Praderas del Puente Blanco.</p>
+                <article id="arbol-blanco" class="tarjeta-lugar lado-claro" data-ciudad-tema="light">
+                    <h3>2. El Árbol Blanco</h3>
+                    <p><strong>Ubicación:</strong> Explanada Real.</p>
 
                     <figure>
-                        <img 
-                            src="https://picsum.photos/id/1015/800/400" 
-                            alt="Puente de arcos de piedra cruzando un cañón fluvial envuelto en bruma espesa">
-                        <span class="badge etiqueta-imagen">Panorámico</span>
+                        <img
+                            src="IMG/%C3%81rbol%20Blanco.png"
+                            alt="Árbol de tronco blanco y copa extensa en la explanada de la ciudadela">
+                        <span class="badge etiqueta-imagen">Patrimonio histórico</span>
                         <figcaption>
-                            <strong>Paso del Morgulduin.</strong> Vista de los arcos mayores desde la orilla occidental del río.
+                            <strong>El Árbol Blanco.</strong> Retoño de Nimloth plantado por Isildur.
                         </figcaption>
                     </figure>
 
                     <p>
-                        Un imponente viaducto de arcos de piedra caliza que cruza el torrente gélido del <em>Morgulduin</em>. La calzada está flanqueada por figuras monumentales esculpidas en la roca viva, mientras que desde la superficie del agua ascienden las densas brumas termales que caracterizan al valle al anochecer.
+                        Primer <strong>Árbol Blanco de Gondor</strong>, sembrado por Isildur con un fruto de
+                        Nimloth. Sauron lo quemó en el 3429 de la Segunda Edad; Isildur escapó con una semilla.
                     </p>
 
-                    <h4>Experiencias y actividades recomendadas</h4>
+                    <h4>Imperdibles</h4>
                     <ul>
-                        <li>Paseo peatonal por la calzada adoquinada con piedra extraída de las <strong>Montañas de la Sombra</strong>.</li>
-                        <li>Observación del fenómeno de condensación y niebla baja en los arcos inferiores del río.</li>
-                        <li>Recorrido guiado de interpretación escultórica de los centinelas de piedra.</li>
+                        <li>Visita a la explanada donde creció.</li>
+                        <li>Charla sobre su linaje en Gondor.</li>
                     </ul>
 
-                    <h4>¿Por qué incluirlo en su visita?</h4>
-                    <p>
-                        Constituye el umbral geográfico del valle y el punto panorámico predilecto para contemplar la silueta completa de la fortaleza contra los riscos orientales.
-                    </p>
                     <p><a class="btn btn-outline-secondary" href="contacto.html">Consultar por este circuito</a></p>
                 </article>
 
-                <article id="terrazas-silenciosas" class="tarjeta-lugar lado-oscuro">
-                    <h3>3. Terrazas Botánicas de la Flor Pálida</h3>
-                    <p><strong>Ubicación:</strong> Ribera oriental baja, franja adyacente a la Ciénaga de la Ruina.</p>
+                <article id="murallas-luna" class="tarjeta-lugar lado-claro" data-ciudad-tema="light">
+                    <h3>3. Las Murallas y la Puerta de la Luna</h3>
+                    <p><strong>Ubicación:</strong> Acceso norte de la ciudadela.</p>
 
                     <figure>
-                        <img 
-                            src="https://picsum.photos/id/1043/800/400" 
-                            alt="Terrazas escalonadas de cultivo botánico envueltas en la bruma crepuscular">
+                        <img
+                            src="IMG/murallas-luna.png"
+                            alt="Murallas de mármol blanco de Minas Ithil sobre el valle">
+                        <span class="badge etiqueta-imagen">Arquitectura defensiva</span>
+                        <figcaption>
+                            <strong>Puerta de la Luna.</strong> Acceso principal a la ciudadela.
+                        </figcaption>
+                    </figure>
+
+                    <p>
+                        Anillo de murallas de mármol blanco que ciñe la ciudadela. La Puerta de la Luna
+                        abre el paso desde el valle y conserva el trazado de la guardia original.
+                    </p>
+
+                    <h4>Imperdibles</h4>
+                    <ul>
+                        <li>Caminata por el adarve y las almenas.</li>
+                        <li>Vista del valle desde la puerta.</li>
+                    </ul>
+
+                    <p><a class="btn btn-outline-secondary" href="contacto.html">Consultar por este circuito</a></p>
+                </article>
+
+                <article id="jardines-ciudadela" class="tarjeta-lugar lado-claro" data-ciudad-tema="light">
+                    <h3>4. Los Jardines de la Ciudadela</h3>
+                    <p><strong>Ubicación:</strong> Terrazas altas de la ciudadela.</p>
+
+                    <figure>
+                        <img
+                            src="IMG/jardines-ciudadela.png"
+                            alt="Jardines escalonados con fuentes y vegetación entre terrazas de piedra">
+                        <span class="badge etiqueta-imagen">Jardines</span>
+                        <figcaption>
+                            <strong>Jardines de la Ciudadela.</strong> Fuentes y terrazas sobre el valle.
+                        </figcaption>
+                    </figure>
+
+                    <p>
+                        Terrazas ajardinadas con fuentes de piedra y miradores sobre el valle de Ithilien.
+                        Un remanso verde entre las murallas, pensado para el paseo al atardecer.
+                    </p>
+
+                    <h4>Imperdibles</h4>
+                    <ul>
+                        <li>Paseo al atardecer entre fuentes.</li>
+                        <li>Recorrido botánico por las terrazas.</li>
+                    </ul>
+
+                    <p><a class="btn btn-outline-secondary" href="contacto.html">Consultar por este circuito</a></p>
+                </article>
+
+                <article id="murallas-morgul" class="tarjeta-lugar lado-oscuro" data-ciudad-tema="dark">
+                    <h3>1. Las Murallas de Morgul</h3>
+                    <p><strong>Ubicación:</strong> Perímetro de la ciudadela.</p>
+
+                    <figure>
+                        <img
+                            src="IMG/minas_morgul.jpeg"
+                            alt="Minas Morgul y sus murallas bajo un resplandor verde entre las brumas">
+                        <span class="badge etiqueta-imagen">Arquitectura defensiva</span>
+                        <figcaption>
+                            <strong>Murallas de Morgul.</strong> La ciudadela emerge entre las brumas del valle.
+                        </figcaption>
+                    </figure>
+
+                    <p>
+                        El recinto amurallado protege la ciudadela y sus terrazas. Desde el valle, sus muros
+                        se alzan entre la niebla y el resplandor verdoso de Minas Morgul.
+                    </p>
+
+                    <h4>Imperdibles</h4>
+                    <ul>
+                        <li>Vista panorámica de la ciudadela desde el valle.</li>
+                        <li>Observación de las murallas y sus torres entre la bruma.</li>
+                    </ul>
+
+                    <p><a class="btn btn-outline-secondary" href="contacto.html">Consultar por este circuito</a></p>
+                </article>
+
+                <article id="terrazas-silenciosas" class="tarjeta-lugar lado-oscuro" data-ciudad-tema="dark">
+                    <h3>2. Terrazas Botánicas de la Flor Pálida</h3>
+                    <p><strong>Ubicación:</strong> Praderas del valle, junto al Morgulduin.</p>
+
+                    <figure>
+                        <img class="imagen-terrazas"
+                            src="IMG/terrazas.jpg"
+                            alt="Vista de las terrazas de la Flor Pálida en el valle de Morgul">
                         <span class="badge etiqueta-imagen">Visita nocturna</span>
                         <figcaption>
-                            <strong>Reserva Botánica.</strong> Prados y terrazas de flora silvestre de floración nocturna.
+                            <strong>Praderas de la Flor Pálida.</strong> Floración nocturna en el valle.
                         </figcaption>
                     </figure>
 
                     <p>
-                        Antiguas terrazas de cultivo reconvertidas en una reserva botánica única en la Tierra Media. Albergan extensos prados de <em>flores pálidas de ciclo nocturno</em>, una especie silvestre bioluminiscente que desprende un aroma denso y dulce que impregna el ambiente al caer el sol.
+                        Prados de flores blancas de aroma enfermizo y penetrante que cubren las riberas
+                        del río. Al caer la noche, su blancura pálida marca el paisaje del valle.
                     </p>
 
-                    <h4>Propuestas culturales y actividades</h4>
+                    <h4>Imperdibles</h4>
                     <ul>
-                        <li>Circuitos de senderismo nocturno con linternas de cristal y velos aromáticos de cortesía.</li>
-                        <li>Talleres de documentación botánica de especies adaptadas a la ausencia de luz solar directa.</li>
-                        <li>Visitas al centro de interpretación de la flora endémica del valle.</li>
+                        <li>Senderos nocturnos junto a las praderas.</li>
+                        <li>Observación de la floración pálida.</li>
                     </ul>
 
-                    <h4>¿Por qué incluirlo en su visita?</h4>
+                    <p><a class="btn btn-outline-secondary" href="contacto.html">Consultar por este circuito</a></p>
+                </article>
+
+                <article id="torre-morgul" class="tarjeta-lugar lado-oscuro" data-ciudad-tema="dark">
+                    <h3>3. La Torre de Morgul</h3>
+                    <p><strong>Ubicación:</strong> Cumbre de la ciudadela.</p>
+
+                    <figure>
+                        <img class="imagen-torre"
+                            src="IMG/torre%20de%20morgul.webp"
+                            alt="Torre oscura de Minas Morgul bajo un resplandor pálido">
+                        <span class="badge etiqueta-imagen">Mirador nocturno</span>
+                        <figcaption>
+                            <strong>La Torre de Morgul.</strong> La luz pálida sobre la ciudadela.
+                        </figcaption>
+                    </figure>
+
                     <p>
-                        Ofrece una experiencia sensorial irrepetible en el continente: al ocultarse la luna, las terrazas quedan iluminadas únicamente por el suave resplandor fósforo del suelo vegetal.
+                        La torre más alta de Minas Morgul, con muchas ventanas y un remate que gira
+                        lentamente de un lado al otro. De noche, una luz pálida y fría la corona.
                     </p>
+
+                    <h4>Imperdibles</h4>
+                    <ul>
+                        <li>Mirador nocturno hacia el valle.</li>
+                        <li>Observación de la luz giratoria desde el exterior.</li>
+                    </ul>
+
+                    <p><a class="btn btn-outline-secondary" href="contacto.html">Consultar por este circuito</a></p>
+                </article>
+
+                <article id="puerta-morgul" class="tarjeta-lugar lado-oscuro" data-ciudad-tema="dark">
+                    <h3>4. La Puerta de Morgul</h3>
+                    <p><strong>Ubicación:</strong> Muro norte, final del camino de Morgul.</p>
+
+                    <figure>
+                        <img
+                            src="IMG/puente_minasmorgul.webp"
+                            alt="Puerta de Morgul con el puente sobre el Morgulduin en primer plano">
+                        <span class="badge etiqueta-imagen">Acceso histórico</span>
+                        <figcaption>
+                            <strong>Puerta de Morgul.</strong> El acceso al final del camino, tras el puente.
+                        </figcaption>
+                    </figure>
+
+                    <p>
+                        La puerta de la ciudad, tallada como una boca abierta con dientes y ojos. El camino
+                        de Morgul cruza el puente y asciende hasta este acceso; las estatuas corrompidas
+                        marcan la cabecera del puente.
+                    </p>
+
+                    <h4>Imperdibles</h4>
+                    <ul>
+                        <li>Recorrido del camino de Morgul hasta la puerta.</li>
+                        <li>Observación de las estatuas del puente.</li>
+                    </ul>
+
                     <p><a class="btn btn-outline-secondary" href="contacto.html">Consultar por este circuito</a></p>
                 </article>
             </div>
@@ -151,30 +388,48 @@
 
         <aside id="normas-recorrido">
             <h2>Protocolo de Seguridad del Visitante</h2>
-            <p>
-                Para preservar el ecosistema del valle y garantizar una estancia segura, la Intendencia de Turismo establece las siguientes normas de cumplimiento obligatorio:
-            </p>
-            <ol>
-                <li>Permanecer dentro de los senderos empedrados y señalizados en todo momento.</li>
-                <li>No manipular ni recolectar ejemplares de la flora luminiscente de las terrazas.</li>
-                <li>Regresar a la <em>Puerta del Crepúsculo</em> antes del inicio del toque de queda nocturno de la guardia.</li>
-            </ol>
-            <p>
-                Para consultar más antecedentes geográficos e históricos, acceda al 
-                <a href="https://es.wikipedia.org/wiki/Minas_Morgul" target="_blank" rel="noopener noreferrer">registro territorial enciclopédico</a>.
-            </p>
+            <div data-ciudad-tema="light">
+                <p>
+                    Para preservar los jardines y garantizar una estancia segura en Minas Ithil, la Intendencia de Turismo establece las siguientes normas de cumplimiento obligatorio:
+                </p>
+                <ol>
+                    <li>Permanecer dentro de los senderos empedrados y señalizados en todo momento.</li>
+                    <li>No manipular ni recolectar ejemplares de la flora de los jardines de la ciudadela.</li>
+                    <li>Regresar a la <em>Puerta de la Luna</em> antes del cierre nocturno de la guardia.</li>
+                </ol>
+                <p>
+                    Para consultar más antecedentes geográficos e históricos, acceda al
+                    <a href="https://es.wikipedia.org/wiki/Minas_Ithil" target="_blank" rel="noopener noreferrer">registro territorial enciclopédico</a>.
+                </p>
+            </div>
+            <div data-ciudad-tema="dark">
+                <p>
+                    Para preservar el ecosistema del valle y garantizar una estancia segura en Minas Morgul, la Intendencia de Turismo establece las siguientes normas de cumplimiento obligatorio:
+                </p>
+                <ol>
+                    <li>Permanecer dentro de los senderos empedrados y señalizados en todo momento.</li>
+                    <li>No manipular ni recolectar ejemplares de la flora luminiscente de las terrazas.</li>
+                    <li>Regresar a la <em>Puerta de Morgul</em> antes del inicio del toque de queda nocturno de la guardia.</li>
+                </ol>
+                <p>
+                    Para consultar más antecedentes geográficos e históricos, acceda al
+                    <a href="https://es.wikipedia.org/wiki/Minas_Morgul" target="_blank" rel="noopener noreferrer">registro territorial enciclopédico</a>.
+                </p>
+            </div>
         </aside>
 
     </main>
 
     <footer>
-        <p>&copy; 2026 Ente Oficial de Turismo y Patrimonio Territorial de Minas Ithil y Minas Morgul. Todos los derechos reservados.</p>
+        <p data-ciudad-tema="light">&copy; 2026 Ente Oficial de Turismo y Patrimonio Territorial de Minas Ithil. Todos los derechos reservados.</p>
+        <p data-ciudad-tema="dark">&copy; 2026 Ente Oficial de Turismo y Patrimonio Territorial de Minas Morgul. Todos los derechos reservados.</p>
         <nav aria-label="Retorno al encabezado">
             <a href="#inicio">Volver arriba</a>
         </nav>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/tema.js"></script>
 
 </body>
 </html>

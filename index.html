@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minas Ithil y Minas Morgul | Portal de Turismo</title>
+    <title>Portal de Turismo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Lora:wght@400;700&display=swap" rel="stylesheet">
@@ -20,7 +20,14 @@
         [hidden] { display: none !important; }
         html[data-bs-theme="dark"] {
             color-scheme: dark;
-            background: #0b1410;
+            background-color: #0b1410;
+            background-image:
+                linear-gradient(rgba(11, 20, 16, 0.86), rgba(11, 20, 16, 0.86)),
+                url("IMG/papiro.jpg");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
             --color-fondo-gondor: #16231c;
             --color-texto-gondor: #e4eee5;
             --color-primario-gondor: #b6dfa1;
@@ -90,6 +97,16 @@
         .selector-tema { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .75rem; margin: 1rem 0; }
         .selector-tema select { width: auto; max-width: 100%; }
         #imagen-ciudad { width: 100%; max-height: 420px; object-fit: contain; }
+
+        @media (max-width: 1100px) {
+            html[data-bs-theme="dark"] { background-image: none; }
+            html[data-bs-theme="dark"]::before {
+                background:
+                    linear-gradient(rgba(11, 20, 16, 0.88), rgba(11, 20, 16, 0.88)),
+                    url("IMG/papiro.jpg") center / cover no-repeat;
+            }
+            html[data-bs-theme="dark"] body { background-color: transparent; }
+        }
     </style>
 </head>
 <body>
@@ -111,17 +128,16 @@
                 </div>
             </div>
         </nav>
-        <h1>Minas Ithil y Minas Morgul</h1>
-        <p><em id="descripcion-ciudad">La Torre de la Luna Naciente.</em></p>
+        <h1>Portal de Turismo</h1>
+        <p><em id="descripcion-ciudad">Información turística de la ciudad.</em></p>
         <div class="selector-tema">
             <label for="modo-tema">Apariencia y ciudad</label>
             <select id="modo-tema" class="form-select">
-                <option value="system">Según el sistema</option>
+                <option value="system">Automático (según el sistema)</option>
                 <option value="light">Claro — Minas Ithil</option>
                 <option value="dark">Oscuro — Minas Morgul</option>
             </select>
         </div>
-        <p id="estado-tema" role="status" aria-live="polite"></p>
 
     </header>
 
@@ -132,30 +148,40 @@
         </figure>
 
         <section id="bienvenida">
-            <h2>Bienvenidos al valle de la Luna y la Hechicería</h2>
-            <p>
-                Entre las laderas del <strong>Ephel Dúath</strong> se encuentra una ciudad marcada por el paso del tiempo.
-                <strong>Minas Ithil</strong>, la antigua Torre de la Luna Naciente, conserva el recuerdo de sus muros de
-                mármol blanco; <strong>Minas Morgul</strong>, la Torre de la Hechicería, revela el misterio de un valle
-                cubierto por luces pálidas y leyendas.
+            <h2 data-ciudad-tema="light">Bienvenidos a Minas Ithil</h2>
+            <h2 data-ciudad-tema="dark">Bienvenidos a Minas Morgul</h2>
+            <p data-ciudad-tema="light">
+                Entre las laderas del <strong>Ephel Dúath</strong> se encuentra <strong>Minas Ithil</strong>, la
+                Ciudadela de la Luna: una ciudad de muros de mármol blanco, jardines nocturnos y miradores que
+                brillan bajo la luz de la luna.
             </p>
-            <p>Este portal invita a conocer ambas identidades mediante recorridos, relatos y experiencias para visitantes curiosos.</p>
+            <p data-ciudad-tema="dark">
+                En el fondo del valle, bajo las <strong>Montañas de la Sombra</strong>, se alza
+                <strong>Minas Morgul</strong>, la Torre de la Hechicería: un paisaje de nieblas, piedra oscura y
+                resplandores pálidos que se recorre con respeto y guía.
+            </p>
+            <p>Este portal invita a conocer la ciudad mediante recorridos, relatos y experiencias para visitantes curiosos.</p>
             <p><a class="btn btn-primary" href="#destacados">Conocer los lugares destacados</a></p>
         </section>
 
         <section id="mapa">
-            <h2>La Tierra Media en el mapa</h2>
-            <p>
-                Minas Ithil y Minas Morgul se ubican en el extremo este de <strong>Gondor</strong>, sobre la frontera
+            <h2>La ciudad en el mapa</h2>
+            <p data-ciudad-tema="light">
+                Minas Ithil se ubica en el extremo este de <strong>Gondor</strong>, sobre la frontera
                 con <strong>Mordor</strong>, al pie de las <strong>Montañas de la Sombra</strong>. El mapa permite
-                ubicar el valle dentro del recorrido general de la Tierra Media.
+                ubicar la ciudad dentro del recorrido general de la Tierra Media.
+            </p>
+            <p data-ciudad-tema="dark">
+                Minas Morgul se ubica en el extremo este de <strong>Gondor</strong>, sobre la frontera
+                con <strong>Mordor</strong>, al pie de las <strong>Montañas de la Sombra</strong>. El mapa permite
+                ubicar la ciudad dentro del recorrido general de la Tierra Media.
             </p>
             <figure>
                 <img src="IMG/mapa.jpg"
-                     alt="Mapa de la Tierra Media con las regiones de Eriador, Rohan, Gondor y Mordor, y un círculo rojo que señala la ubicación de Minas Morgul">
+                     alt="Mapa de la Tierra Media con las regiones de Eriador, Rohan, Gondor y Mordor">
                 <figcaption>
                     <strong>Mapa de la Tierra Media.</strong>
-                    El círculo rojo marca a Minas Ithil y Minas Morgul al este de Gondor, junto a Mordor.
+                    El círculo rojo marca la ubicación de la ciudad al este de Gondor, junto a Mordor.
                     En la <a href="ciudad.html#datos">página de la ciudad</a> hay más datos clave para planificar la visita.
                 </figcaption>
             </figure>
@@ -163,31 +189,34 @@
 
         <section id="identidades">
             <div class="container">
-                <h2>Una ciudad, dos memorias</h2>
+                <h2 data-ciudad-tema="light">Una ciudad de jardines y luz de luna</h2>
+                <h2 data-ciudad-tema="dark">Una ciudad de brumas y luces pálidas</h2>
                 <div class="row g-4">
-                    <div class="col-12 col-md-6" data-ciudad-tema="light">
+                    <div class="col-12" data-ciudad-tema="light">
                         <article class="card h-100 lado-claro">
-                            <div class="card-body">
-                                <span class="badge rounded-pill text-bg-primary mb-2">Lado luminoso</span>
+                            <div class="card-body identidad-cuerpo">
                                 <h3 class="card-title">Minas Ithil: la ciudad de la luna</h3>
-                                <p>
-                                    Fundada como bastión de Gondor, Minas Ithil fue una ciudad de jardines, fuentes y torres que reflejaban la luna.
-                                    Sus paseos evocan la <em>piedra blanca, el río Ithilduin y las celebraciones nocturnas</em>.
-                                </p>
-                                <p><a class="btn btn-outline-secondary" href="ciudad.html#minas-ithil">Descubrir la historia de Minas Ithil</a></p>
+                                <div class="identidad-detalle">
+                                    <p>
+                                        Fundada como bastión de Gondor, Minas Ithil fue una ciudad de jardines, fuentes y torres que reflejaban la luna.
+                                        Sus paseos evocan la <em>piedra blanca, el río Ithilduin y las celebraciones nocturnas</em>.
+                                    </p>
+                                    <p><a class="btn btn-outline-secondary" href="ciudad.html#minas-ithil">Descubrir la historia de Minas Ithil</a></p>
+                                </div>
                             </div>
                         </article>
                     </div>
-                    <div class="col-12 col-md-6" data-ciudad-tema="dark">
+                    <div class="col-12" data-ciudad-tema="dark">
                         <article class="card h-100 lado-oscuro">
-                            <div class="card-body">
-                                <span class="badge rounded-pill text-bg-secondary mb-2">Lado tenebroso</span>
+                            <div class="card-body identidad-cuerpo">
                                 <h3 class="card-title">Minas Morgul: el valle crepuscular</h3>
-                                <p>
-                                    Tras la llegada de los Nazgûl, la antigua fortaleza se transformó en Minas Morgul. Hoy sus ruinas, nieblas y
-                                    resplandores verdosos dan forma a un paisaje de leyenda que se recorre con respeto y guía.
-                                </p>
-                                <p><a class="btn btn-outline-secondary" href="ciudad.html#minas-morgul">Explorar la memoria de Minas Morgul</a></p>
+                                <div class="identidad-detalle">
+                                    <p>
+                                        Tras la llegada de los Nazgûl, la antigua fortaleza se transformó en Minas Morgul. Hoy sus ruinas, nieblas y
+                                        resplandores verdosos dan forma a un paisaje de leyenda que se recorre con respeto y guía.
+                                    </p>
+                                    <p><a class="btn btn-outline-secondary" href="ciudad.html#minas-morgul">Explorar la memoria de Minas Morgul</a></p>
+                                </div>
                             </div>
                         </article>
                     </div>
@@ -198,35 +227,86 @@
         <section id="destacados">
             <div class="container">
                 <h2>Lugares y experiencias destacadas</h2>
-                <p>Prepare su visita con una selección de los atractivos más representativos del valle.</p>
+                <p data-ciudad-tema="light">Prepare su visita con una selección de los atractivos más representativos de Minas Ithil.</p>
+                <p data-ciudad-tema="dark">Prepare su visita con una selección de los atractivos más representativos de Minas Morgul.</p>
                 <div class="row g-4">
-                    <div class="col-12 col-md-6 col-lg-4" data-ciudad-tema="light">
+                    <div class="col-12 col-md-6 col-lg-3" data-ciudad-tema="light">
                         <article class="card h-100 lado-claro">
                             <div class="card-body">
                                 <span class="badge rounded-pill text-bg-primary mb-2">Destacado</span>
-                                <h3 class="card-title">La Gran Torre y el Mirador de la Cúspide</h3>
-                                <p>El punto más alto de la ciudadela reúne vistas del valle, salas astronómicas y las huellas de las dos épocas de la fortaleza.</p>
+                                <h3 class="card-title">La Gran Torre de la Luna Naciente</h3>
+                                <p>El punto más alto de la ciudadela reúne vistas del valle, salas astronómicas y jardines.</p>
                                 <p><a class="btn btn-outline-secondary" href="lugares.html#torre-central">Ver la ficha del atractivo</a></p>
                             </div>
                         </article>
                     </div>
-                    <div class="col-12 col-md-6 col-lg-4" data-ciudad-tema="dark">
-                        <article class="card h-100 lado-oscuro">
+                    <div class="col-12 col-md-6 col-lg-3" data-ciudad-tema="light">
+                        <article class="card h-100 lado-claro">
                             <div class="card-body">
-                                <span class="badge rounded-pill text-bg-secondary mb-2">Destacado</span>
-                                <h3 class="card-title">El Puente Blanco sobre el Morgulduin</h3>
-                                <p>Un antiguo viaducto de piedra desde el cual se observan el río, la bruma del atardecer y los riscos orientales.</p>
-                                <p><a class="btn btn-outline-secondary" href="lugares.html#puente-blanco">Planificar el recorrido por el puente</a></p>
+                                <span class="badge rounded-pill text-bg-primary mb-2">Destacado</span>
+                                <h3 class="card-title">El Árbol Blanco</h3>
+                                <p>El primer Árbol Blanco de Gondor creció en la explanada, sembrado por Isildur con un fruto de Nimloth.</p>
+                                <p><a class="btn btn-outline-secondary" href="lugares.html#arbol-blanco">Ver la ficha del atractivo</a></p>
                             </div>
                         </article>
                     </div>
-                    <div class="col-12 col-md-6 col-lg-4" data-ciudad-tema="dark">
+                    <div class="col-12 col-md-6 col-lg-3" data-ciudad-tema="light">
+                        <article class="card h-100 lado-claro">
+                            <div class="card-body">
+                                <span class="badge rounded-pill text-bg-primary mb-2">Destacado</span>
+                                <h3 class="card-title">Las Murallas y la Puerta de la Luna</h3>
+                                <p>El anillo de mármol blanco que ciñe la ciudadela y su puerta de acceso desde el valle.</p>
+                                <p><a class="btn btn-outline-secondary" href="lugares.html#murallas-luna">Ver la ficha del atractivo</a></p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3" data-ciudad-tema="light">
+                        <article class="card h-100 lado-claro">
+                            <div class="card-body">
+                                <span class="badge rounded-pill text-bg-primary mb-2">Destacado</span>
+                                <h3 class="card-title">Los Jardines de la Ciudadela</h3>
+                                <p>Terrazas ajardinadas con fuentes y miradores sobre el valle de Ithilien.</p>
+                                <p><a class="btn btn-outline-secondary" href="lugares.html#jardines-ciudadela">Ver la ficha del atractivo</a></p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3" data-ciudad-tema="dark">
+                        <article class="card h-100 lado-oscuro">
+                            <div class="card-body">
+                                <span class="badge rounded-pill text-bg-secondary mb-2">Destacado</span>
+                                <h3 class="card-title">Las Murallas de Morgul</h3>
+                                <p>El recinto amurallado que ciñe la ciudadela, entre la niebla y el resplandor verdoso del valle.</p>
+                                <p><a class="btn btn-outline-secondary" href="lugares.html#murallas-morgul">Ver la ficha del atractivo</a></p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3" data-ciudad-tema="dark">
                         <article class="card h-100 lado-oscuro">
                             <div class="card-body">
                                 <span class="badge rounded-pill text-bg-secondary mb-2">Destacado</span>
                                 <h3 class="card-title">Terrazas Botánicas de la Flor Pálida</h3>
-                                <p>Senderos de visita nocturna, especies luminiscentes y talleres de interpretación de la flora del valle.</p>
-                                <p><a class="btn btn-outline-secondary" href="lugares.html#terrazas-silenciosas">Conocer las terrazas</a></p>
+                                <p>Praderas de flores pálidas que resplandecen en la noche del valle.</p>
+                                <p><a class="btn btn-outline-secondary" href="lugares.html#terrazas-silenciosas">Ver la ficha del atractivo</a></p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3" data-ciudad-tema="dark">
+                        <article class="card h-100 lado-oscuro">
+                            <div class="card-body">
+                                <span class="badge rounded-pill text-bg-secondary mb-2">Destacado</span>
+                                <h3 class="card-title">La Torre de Morgul</h3>
+                                <p>La torre más alta de Minas Morgul y su luz pálida girando sobre el valle.</p>
+                                <p><a class="btn btn-outline-secondary" href="lugares.html#torre-morgul">Ver la ficha del atractivo</a></p>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3" data-ciudad-tema="dark">
+                        <article class="card h-100 lado-oscuro">
+                            <div class="card-body">
+                                <span class="badge rounded-pill text-bg-secondary mb-2">Destacado</span>
+                                <h3 class="card-title">La Puerta de Morgul</h3>
+                                <p>El acceso tallado como una boca abierta, al final del camino de Morgul.</p>
+                                <p><a class="btn btn-outline-secondary" href="lugares.html#puerta-morgul">Ver la ficha del atractivo</a></p>
                             </div>
                         </article>
                     </div>
@@ -235,11 +315,17 @@
         </section>
 
         <section id="agenda">
-            <h2>Propuestas para su visita</h2>
-            <ul>
-                <li><strong>Festival de la Luna Llena:</strong> paseo de linternas junto al río y feria de flores en las praderas.</li>
-                <li><strong>Ruta del Crepúsculo:</strong> caminata guiada entre la Puerta del Crepúsculo y el Mirador de la Cúspide.</li>
+            <h2 data-ciudad-tema="light">Propuestas para visitar Minas Ithil</h2>
+            <h2 data-ciudad-tema="dark">Propuestas para visitar Minas Morgul</h2>
+            <ul data-ciudad-tema="light">
+                <li><strong>Festival de la Luna Llena:</strong> paseo de linternas junto al Ithilduin y feria de flores en las praderas.</li>
+                <li><strong>La Caminata del Espejo:</strong> recorrido a paso lento por las fuentes del Barrio del Espejo de la Luna.</li>
+                <li><strong>La Hora del Silencio:</strong> encuentro nocturno en la Ciudadela de la Luna al ocultarse la luna.</li>
+            </ul>
+            <ul data-ciudad-tema="dark">
+                <li><strong>Ruta del Crepúsculo:</strong> caminata guiada entre la Puerta de Morgul y el Puente Blanco sobre el Morgulduin.</li>
                 <li><strong>Relatos de la Ruina:</strong> narraciones nocturnas sobre la caída y restauración de la ciudad.</li>
+                <li><strong>Luces Señuelo:</strong> observación guiada de las luces pálidas de la Ciénaga de la Ruina.</li>
             </ul>
             <p>Para horarios, recomendaciones y acompañamiento de guías, visite la <a href="contacto.html">Oficina de Turismo</a>.</p>
         </section>
@@ -255,7 +341,8 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Ente Oficial de Turismo y Patrimonio de Minas Ithil y Minas Morgul.</p>
+        <p data-ciudad-tema="light">&copy; 2026 Ente Oficial de Turismo y Patrimonio de Minas Ithil.</p>
+        <p data-ciudad-tema="dark">&copy; 2026 Ente Oficial de Turismo y Patrimonio de Minas Morgul.</p>
         <nav aria-label="Navegación del pie de página"><a href="#inicio">Volver arriba</a></nav>
     </footer>
 
