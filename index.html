@@ -97,7 +97,6 @@
         .selector-tema { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .75rem; margin: 1rem 0; }
         .selector-tema select { width: auto; max-width: 100%; }
         #imagen-ciudad { width: 100%; max-height: 420px; object-fit: contain; }
-
         @media (max-width: 1100px) {
             html[data-bs-theme="dark"] { background-image: none; }
             html[data-bs-theme="dark"]::before {
@@ -142,26 +141,27 @@
     </header>
 
     <main>
-        <figure>
-            <img id="imagen-ciudad" src="IMG/minas_ithil.jpg" alt="Minas Ithil bajo la luna">
-            <figcaption id="nombre-imagen">Minas Ithil</figcaption>
-        </figure>
-
-        <section id="bienvenida">
-            <h2 data-ciudad-tema="light">Bienvenidos a Minas Ithil</h2>
-            <h2 data-ciudad-tema="dark">Bienvenidos a Minas Morgul</h2>
-            <p data-ciudad-tema="light">
-                Entre las laderas del <strong>Ephel Dúath</strong> se encuentra <strong>Minas Ithil</strong>, la
-                Ciudadela de la Luna: una ciudad de muros de mármol blanco, jardines nocturnos y miradores que
-                brillan bajo la luz de la luna.
-            </p>
-            <p data-ciudad-tema="dark">
-                En el fondo del valle, bajo las <strong>Montañas de la Sombra</strong>, se alza
-                <strong>Minas Morgul</strong>, la Torre de la Hechicería: un paisaje de nieblas, piedra oscura y
-                resplandores pálidos que se recorre con respeto y guía.
-            </p>
-            <p>Este portal invita a conocer la ciudad mediante recorridos, relatos y experiencias para visitantes curiosos.</p>
-            <p><a class="btn btn-primary" href="#destacados">Conocer los lugares destacados</a></p>
+        <section id="bienvenida" class="portada-ilustrada">
+            <div class="portada-texto">
+                <h2 data-ciudad-tema="light">Bienvenidos a Minas Ithil</h2>
+                <h2 data-ciudad-tema="dark">Bienvenidos a Minas Morgul</h2>
+                <p data-ciudad-tema="light">
+                    Entre las laderas del <strong>Ephel Dúath</strong> se encuentra <strong>Minas Ithil</strong>, la
+                    Ciudadela de la Luna: una ciudad de muros de mármol blanco, jardines nocturnos y miradores que
+                    brillan bajo la luz de la luna.
+                </p>
+                <p data-ciudad-tema="dark">
+                    En el fondo del valle, bajo las <strong>Montañas de la Sombra</strong>, se alza
+                    <strong>Minas Morgul</strong>, la Torre de la Hechicería: un paisaje de nieblas, piedra oscura y
+                    resplandores pálidos que se recorre con respeto y guía.
+                </p>
+                <p>Este portal invita a conocer la ciudad mediante recorridos, relatos y experiencias para visitantes curiosos.</p>
+                <p><a class="btn btn-primary" href="#destacados">Conocer los lugares destacados</a></p>
+            </div>
+            <figure class="imagen-portada">
+                <img id="imagen-ciudad" src="IMG/minas_ithil.jpg" alt="Minas Ithil bajo la luna">
+                <figcaption id="nombre-imagen">Minas Ithil</figcaption>
+            </figure>
         </section>
 
         <section id="mapa">
