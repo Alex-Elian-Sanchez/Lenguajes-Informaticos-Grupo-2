@@ -1,16 +1,8 @@
 (() => {
-    const clave = 'turismo-tema';
     const sistema = window.matchMedia('(prefers-color-scheme: dark)');
     const selector = document.getElementById('modo-tema');
-    const opciones = ['system', 'light', 'dark'];
     let preferencia = 'system';
-    try {
-        const guardada = localStorage.getItem(clave);
-        if (opciones.includes(guardada)) preferencia = guardada;
-    } catch (error) { /* El selector funciona aunque el almacenamiento esté bloqueado. */ }
 
-    // Solo index.html y ciudad.html tienen descripción de ciudad.
-    // La imagen del encabezado se conserva únicamente en index.html.
     const descripcion = document.getElementById('descripcion-ciudad');
     const imagen = document.getElementById('imagen-ciudad');
     const nombreImagen = document.getElementById('nombre-imagen');
@@ -44,7 +36,6 @@
 
             if (nombreImagen) nombreImagen.textContent = ciudad;
         } else {
-            // lugares.html y contacto.html definen un título para cada ciudad.
             const tituloClaro = document.documentElement.dataset.tituloClaro;
             const tituloOscuro = document.documentElement.dataset.tituloOscuro;
             if (tituloClaro && tituloOscuro) {
@@ -57,13 +48,11 @@
         });
     }
 
-    function guardarTema(valor) {
+    function cambiarTema(valor) {
         preferencia = valor;
-        try { localStorage.setItem(clave, valor); } catch (error) { /* Preferencia válida durante esta visita. */ }
         aplicarTema();
     }
 
-    // Los enlaces directos también deben permitir ver la ciudad de destino.
     function seguirEnlaceCiudad() {
         const tema = {
             '#minas-ithil': 'light',
@@ -80,23 +69,16 @@
 
         if (!tema) return;
 
-        guardarTema(tema);
+        cambiarTema(tema);
 
         const destino = document.getElementById(location.hash.slice(1));
         if (destino) destino.scrollIntoView();
     }
 
-    if (selector) selector.addEventListener('change', () => guardarTema(selector.value));
+    if (selector) selector.addEventListener('change', () => cambiarTema(selector.value));
 
     sistema.addEventListener('change', () => {
         if (preferencia === 'system') aplicarTema();
-    });
-
-    window.addEventListener('storage', evento => {
-        if (evento.key === clave || evento.key === null) {
-            preferencia = opciones.includes(evento.newValue) ? evento.newValue : 'system';
-            aplicarTema();
-        }
     });
 
     window.addEventListener('hashchange', seguirEnlaceCiudad);
