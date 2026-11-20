@@ -1,7 +1,7 @@
 (() => {
     const sistema = window.matchMedia('(prefers-color-scheme: dark)');
     const selector = document.getElementById('modo-tema');
-    let preferencia = 'system';
+    let preferencia = localStorage.getItem('preferencia-tema') || 'system';
 
     const descripcion = document.getElementById('descripcion-ciudad');
     const imagen = document.getElementById('imagen-ciudad');
@@ -50,8 +50,9 @@
 
     function cambiarTema(valor) {
         preferencia = valor;
+        localStorage.setItem('preferencia-tema', valor);
         aplicarTema();
-    }
+}
 
     function seguirEnlaceCiudad() {
         const tema = {
