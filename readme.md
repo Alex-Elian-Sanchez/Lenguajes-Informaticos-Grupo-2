@@ -1,40 +1,51 @@
-# Consignas del trabajo
+# Portal de Turismo: Minas Ithil y Minas Morgul
 
-## Archivos minimos
-`index.html`
-Presentación general de la ciudad, su identidad y características principales.
-Debe incluir un resumen visual de los lugares de interés, propuestas culturales, actividades o eventos destacados.
+Bienvenido al repositorio oficial del Portal de Turismo de nuestra ciudad ficticia. Este proyecto fue desarrollado para la materia Lenguajes Informáticos 1 (UNAHUR, 2do Cuatrimestre 2026).
 
-`ciudad.html`
-Historia e identidad de la ciudad, características principales, barrios o zonas, costumbres y un `< dl >` con datos clave de la ciudad (por ejemplo: población ficticia, año de fundación, clima, gentilicio, etc.).
+Esta web esta tematicamente inspirada en el universo de El Senor de los Anillos y explora el contraste entre dos ciudades de una misma region: Minas Ithil (la Ciudadela de la Luna) y Minas Morgul (la Torre de la Hechiceria).
 
-`lugares.html`
-Al menos 3 lugares de interés o atractivos de la ciudad. Cada uno debe incluir nombre, descripción, ubicación o zona, qué se puede hacer allí y por qué se recomienda visitarlo. Puede incluir propuestas culturales actividades y eventos relacionados.
+---
 
-`contacto.html`
-Información de contacto de la oficina de turismo o centro de información de la ciudad: dirección, teléfono (enlace tel:), email (enlace mailto:) y al menos un enlace externo a una red social ficticia.
+## Integrantes del Equipo
 
-## Estructura y semántica
-- Declaración DOCTYPE y elemento `< html lang="es" >` en todas las páginas.
-- < head > completo: `charset UTF-8, viewport, title` descriptivo y único por página.
-- Estructura semántica obligatoria: `< header >, < nav >, < main > y < footer >` en todas las páginas.
-- El `< nav >` debe contener los enlaces de navegación entre páginas (usando rutas relativas).
-- Usar `< section >, < article > y < aside >` donde corresponda semánticamente.
-- Los headings deben respetar la jerarquía: un solo `< h1 >` por página, seguido de `< h2 >, < h3 >`, etc.
+*   Cutri Angel
+*   Heredia Matias  
+*   Alex Sanchez
 
-## Etiquetas de contenido
-- Etiquetas de texto: usar `< strong >` y `< em >` con criterio semántico, no solo decorativo.
-- Listas: al menos una `< ul >`, una `< ol >` y una `< dl >` en el sitio (no todas en la misma página necesariamente).
-- Imágenes: al menos 2 imágenes con atributos `src` y `alt` descriptivos. Pueden usar imágenes de placeholder (ej. picsum.photos).
-- Enlace de correo (`mailto:`) y de teléfono (`tel:`) en la página de contacto.
-- Al menos un enlace externo con `target="_blank"` y `rel="noopener noreferrer"`.
-- Al menos un enlace interno (`#id`) que salte a una sección dentro de la misma página.
+---
 
-## Navegación y vínculos
-- Todas las páginas deben estar vinculadas entre sí mediante el `< nav >`.
-- Usar rutas relativas para los enlaces entre páginas (`href="nosotros.html"`, no rutas absolutas).
-- El sitio debe poder navegarse completamente sin usar el botón "atrás" del navegador.
+## La Evolucion del Proyecto (Etapas)
 
-## Validación
-- Todas las páginas deben ser válidas según el validador de la W3C (validator.w3.org).
-- No se aceptan errores de estructura. Las advertencias (warnings) son aceptables pero deben poder justificarse.
+El trabajo practico se construyo de forma incremental a lo largo del cuatrimestre, superando cuatro etapas clave:
+
+### Etapa 1: Estructura y Semantica (HTML)
+Comenzamos creando los cimientos del sitio. Desarrollamos una estructura puramente semantica utilizando etiquetas como header, nav, main, article, section, aside y footer. Cada integrante creo una vista diferente, asegurandonos de tener una navegacion fluida mediante rutas relativas, un formulario de contacto con sus respectivos enlaces de correo y telefono, y un codigo validado bajo los estandares de la W3C.
+
+### Etapa 2: Identidad Visual (CSS Puro)
+Le dimos vida a la ciudad. Implementamos una hoja de estilos centralizada (CSS/estilos.css) para mantener la consistencia visual. Usamos variables CSS para definir una paleta de colores basada en las dos ciudades, aplicamos tipografias personalizadas de Google Fonts, y establecimos el box-model, espaciados y estados hover para hacer el sitio interactivo y legible.
+
+### Etapa 3: Responsividad y Layouts (Bootstrap + CSS Avanzado)
+Modernizamos el sitio para que se vea bien en cualquier dispositivo. Incorporamos Bootstrap 5.3 mediante CDN, integrando un Navbar responsive con menu de hamburguesa, la grilla de Bootstrap para organizar las tarjetas de lugares y datos de contacto, y componentes como Cards, Badges y Buttons. Ademas, ampliamos nuestro CSS propio aplicando Flexbox para alinear elementos y Posicionamiento para superponer etiquetas y textos sobre las imagenes principales.
+
+### Etapa 4: Interactividad (JavaScript)
+Para cerrar, agregamos dinamismo al sitio con JavaScript en dos areas principales:
+1. Modo Oscuro/Claro (Minas Morgul / Minas Ithil): Logica desarrollada para alternar no solo los colores y estilos de toda la pagina, sino tambien adaptar los textos y contenidos segun la ciudad seleccionada, ofreciendo una experiencia de usuario inmersiva.
+2. Validacion de Formulario (contacto.html): Un script encargado de interceptar el envio del formulario, validar que los campos obligatorios esten completos, verificar el formato del correo electronico y comprobar que el telefono (si se ingresa) contenga solo numeros. Todo con mensajes de retroalimentacion dinamicos para el usuario.
+
+---
+
+## Tecnologias Utilizadas
+
+*   HTML5 (Estructura semantica)
+*   CSS3 (Variables, Flexbox, Posicionamiento)
+*   Bootstrap 5.3 (Grillas, Componentes, Responsive Design)
+*   JavaScript (Manipulacion del DOM y eventos)
+*   Git & GitHub (Trabajo colaborativo y control de versiones)
+
+---
+
+## Como visualizar el proyecto
+
+No se necesita instalar nada. Simplemente:
+1. Clonar este repositorio en tu computadora.
+2. Abrir el archivo index.html en cualquier navegador web. Se recomienda usar la extension Live Server de VS Code para una mejor experiencia.
